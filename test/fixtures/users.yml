@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  spot_owner: false
+  vehicle_make: MyString
+  vehicle_model: MyString
+  vehicle_color: MyString
+  vehicle_license: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  spot_owner: false
+  vehicle_make: MyString
+  vehicle_model: MyString
+  vehicle_color: MyString
+  vehicle_license: MyString
