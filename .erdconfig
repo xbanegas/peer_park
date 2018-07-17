@@ -1,0 +1,7 @@
+attributes:
+  - content
+  - foreign_key
+  - inheritance
+inheritance: true
+notation: bachman
+polymorphism: true
