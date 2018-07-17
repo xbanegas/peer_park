@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  spot: one
+  start_time: 2018-07-17 19:09:54
+  confirmed: false
+  paid: false
+
+two:
+  user: two
+  spot: two
+  start_time: 2018-07-17 19:09:54
+  confirmed: false
+  paid: false
