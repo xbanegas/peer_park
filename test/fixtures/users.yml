@@ -13,7 +13,7 @@ one:
 two:
   first_name: MyString
   last_name: MyString
-  email: MyString
+  email: MyString2
   spot_owner: false
   vehicle_make: MyString
   vehicle_model: MyString
