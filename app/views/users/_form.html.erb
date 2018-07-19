@@ -11,6 +11,46 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spot_owner %>
+    <%= form.check_box :spot_owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehicle_make %>
+    <%= form.text_field :vehicle_make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehicle_model %>
+    <%= form.text_field :vehicle_model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehicle_color %>
+    <%= form.text_field :vehicle_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehicle_license %>
+    <%= form.text_field :vehicle_license %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
