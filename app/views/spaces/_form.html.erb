@@ -1,4 +1,5 @@
-<%= semantic_form_for [@space.user, @space] do |f| %>
+<%= semantic_form_for @space, :html => {:class => "ui form"} do |f| %>
+<%#= form_with(model: @space, local: true) do |form| %>
   <% if space.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(space.errors.count, "error") %> prohibited this space from being saved:</h2>
@@ -11,9 +12,24 @@
     </div>
   <% end %>
 
-<%= f.inputs %>
-  <%= f.actions do %>
+<%= f.inputs do %>
+     <div class="field">
+       <%= f.input :address %></div>
+     <div class="address">
+       <div class="field"><%= f.input :city, :input_html => { :class => 'address'} %></div>
+       <div class="field"><%= f.input :state, :input_html => { :class => 'address'}%></div>
+       <div class="field"><%= f.input :zip, :input_html => { :class => 'address'}%></div>
+
+     </div>
+     <%= f.input :image, :as => :file %>
+
+
+
+   <% end %>
+
+    <%= f.actions   do %>
     <%= f.action :submit, :as => :button %>
     <%= f.action :cancel, :as => :link %>
   <%end %>
+
 <% end %>
