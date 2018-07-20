@@ -21,10 +21,9 @@ Faker::Config.locale = 'en-US'
     vehicle_model: Faker::Vehicle.model,
     vehicle_color: Faker::Vehicle.color,
   )
-  Spot.create(
+  Space.create(
     user_id: u.id,
-    address_1: Faker::Address.street_address,
-    address_2: Faker::Address.street_address,
+    address: Faker::Address.street_address,
     city: Faker::Address.city,
     state: Faker::Address.state_abbr,
     zip: Faker::Address.zip
