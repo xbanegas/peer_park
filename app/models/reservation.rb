@@ -1,6 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :user
-  belongs_to :spot
+  belongs_to :space
   validates :user_id, :presence => true
-  validates :spot_id, :presence => true
+  validates :space_id, :presence => true
 end

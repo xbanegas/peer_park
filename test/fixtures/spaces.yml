@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  size: MyString
+  avail_m: false
+  avail_t: false
+  avail_w: false
+  avail_th: false
+  avail_f: false
+  avail_sa: false
+  avail_su: false
+  hourly_rate: 1
+  description: MyText
+
+two:
+  user: two
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  size: MyString
+  avail_m: false
+  avail_t: false
+  avail_w: false
+  avail_th: false
+  avail_f: false
+  avail_sa: false
+  avail_su: false
+  hourly_rate: 1
+  description: MyText

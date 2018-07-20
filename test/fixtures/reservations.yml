@@ -2,14 +2,14 @@
 
 one:
   user: one
-  spot: one
+  space: one
   start_time: 2018-07-17 19:09:54
   confirmed: false
   paid: false
 
 two:
   user: two
-  spot: two
+  space: two
   start_time: 2018-07-17 19:09:54
   confirmed: false
   paid: false
