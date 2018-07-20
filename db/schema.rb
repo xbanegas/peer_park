@@ -10,29 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_165834) do
+ActiveRecord::Schema.define(version: 2018_07_19_233555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "spot_id", null: false
+    t.bigint "space_id", null: false
     t.datetime "start_time", null: false
     t.boolean "confirmed", default: false
     t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["spot_id"], name: "index_reservations_on_spot_id"
+    t.index ["space_id"], name: "index_reservations_on_space_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
-  create_table "spots", force: :cascade do |t|
+  create_table "spaces", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "address_1", null: false
-    t.string "address_2", null: false
-    t.string "city", null: false
-    t.string "state", null: false
+    t.string "address"
+    t.string "city"
+    t.string "state"
     t.integer "zip"
     t.string "size"
     t.boolean "avail_m"
@@ -46,14 +45,14 @@ ActiveRecord::Schema.define(version: 2018_07_19_165834) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_spots_on_user_id"
+    t.index ["user_id"], name: "index_spaces_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "cell_number"
-    t.boolean "spot_owner"
+    t.boolean "space_owner"
     t.string "vehicle_make"
     t.string "vehicle_model"
     t.string "vehicle_color"
@@ -77,7 +76,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_165834) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "reservations", "spots"
+  add_foreign_key "reservations", "spaces"
   add_foreign_key "reservations", "users"
-  add_foreign_key "spots", "users"
+  add_foreign_key "spaces", "users"
 end

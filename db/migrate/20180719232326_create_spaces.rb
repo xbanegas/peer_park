@@ -1,11 +1,10 @@
-class CreateSpots < ActiveRecord::Migration[5.2]
+class CreateSpaces < ActiveRecord::Migration[5.2]
   def change
-    create_table :spots do |t|
+    create_table :spaces do |t|
       t.references :user, foreign_key: true
-      t.string :address_1, :null => false
-      t.string :address_2, :null => false
-      t.string :city, :null => false
-      t.string :state, :null => false
+      t.string :address
+      t.string :city
+      t.string :state
       t.integer :zip
       t.string :size
       t.boolean :avail_m
