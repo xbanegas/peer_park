@@ -1,5 +1,19 @@
 <h1> Welcome to Peer Park </h1>
 
+<% if current_user %>
+<div class="ui compact menu">
+  <div class="ui simple dropdown item">
+    <i class="bars icon"></i>
+    <div class="menu">
+      <div class="item">Account History</div>
+      <div class="item">Find Space</div>
+      <div class="item">List Space</div>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "item") %>
+    </div>
+  </div>
+</div>
+<% end %>
+
 <div>
 	<%= link_to('Login', new_user_session_path, {class: 'ui button'})  %>
 	<%= link_to('Sign up to List a Space', new_user_registration_path, {class: 'ui button'})  %>
