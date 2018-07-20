@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :first_name
       t.string :last_name
+      t.string :cell_number
       t.boolean :spot_owner
       t.string :vehicle_make
       t.string :vehicle_model
