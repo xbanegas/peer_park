@@ -5,6 +5,7 @@
   <div class="ui simple dropdown item">
     <i class="bars icon"></i>
     <div class="menu">
+      <%= link_to('Profile', edit_user_registration_path, class: "item") %>
       <div class="item">Account History</div>
       <div class="item">Find Space</div>
       <%= link_to('List Space', new_space_path, class: "item") %>
@@ -19,5 +20,6 @@
 	<%= link_to('Sign up to List a Space', new_user_registration_path, {class: 'ui button'})  %>
 	<%= link_to('Sign up to Find a Space', new_user_registration_path, {class: 'ui button'})  %>
 </div>
+
 
 
