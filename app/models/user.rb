@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable
   has_many :spaces
+  has_many :vehicles
+
 end
