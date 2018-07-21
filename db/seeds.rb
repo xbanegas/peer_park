@@ -16,10 +16,7 @@ Faker::Config.locale = 'en-US'
     encrypted_password: Faker::Internet.password(8),
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    cell_number: Faker::PhoneNumber.cell_phone,
-    vehicle_make: Faker::Vehicle.make,
-    vehicle_model: Faker::Vehicle.model,
-    vehicle_color: Faker::Vehicle.color,
+    cell_number: Faker::PhoneNumber.cell_phone
   )
   Space.create(
     user_id: u.id,
@@ -27,5 +24,13 @@ Faker::Config.locale = 'en-US'
     city: Faker::Address.city,
     state: Faker::Address.state_abbr,
     zip: Faker::Address.zip
+  )
+
+  Vehicle.create(
+    user_id: u.id,
+    make: Faker::Vehicle.make,
+    model: Faker::Vehicle.model,
+    color: Faker::Vehicle.color,
+    license_plate: "123abc"
   )
 end
