@@ -1,23 +1,49 @@
-
 <%= semantic_form_for @space, :html => {:class => "ui form"} do |f| %>
+
+
 
 <h4 class="ui dividing header"> Availability </h4>
  <div class= "weekdays">
+<div class="ui form">
 
-   <%= f.input :avail_m, :as => :boolean, :label => "Monday" %>
-   <%= f.input :avail_t, :label => "Tuesday" %>
-   <%= f.input :avail_w, :label => "Wednesday" %>
-   <%= f.input :avail_th, :label => "Thursday" %>
-   <%= f.input :avail_f, :label => "Friday" %>
-   <%= f.input :avail_sa, :label => "Saturday" %>
-   <%= f.input :avail_su, :label => "Sunday" %>
+   <div class="ui toggle checkbox">
+   <%= f.label :Monday %>
+       <input name="avail_m" type="checkbox" tabindex="0" class="hidden">
+ </div><br/>
+     <div class="ui toggle checkbox">
+       <%= f.label :Tuesday %>
+       <input name="avail_t" type="checkbox" tabindex="0" class="hidden">
+   </div><br/>
+   <div class="ui toggle checkbox">
+     <%= f.label :Wednesday %>
+     <input name="avail_w" type="checkbox" tabindex="0" class="hidden">
+ </div><br/>
+ <div class="ui toggle checkbox">
+   <%= f.label :Thursday %>
+   <input name="avail_tu" type="checkbox" tabindex="0" class="hidden">
+</div><br/>
+<div class="ui toggle checkbox">
+  <%= f.label :Friday %>
+  <input name="avail_f" type="checkbox" tabindex="0" class="hidden">
+</div><br/>
+<div class="ui toggle checkbox">
+  <%= f.label :Saturday %>
+  <input name="avail_sa" type="checkbox" tabindex="0" class="hidden">
+</div><br/>
+<div class="ui toggle checkbox">
+  <%= f.label :Sunday %>
+  <input name="avail_su" type="checkbox" tabindex="0" class="hidden">
+</div><br/>
+
  </div>
+</div>
 
     <%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Pick-up / Van"] %>
 
+
     <%= f.actions   do %>
-    <%= f.action :submit, :as => :button %>
-    <%= f.action :cancel, :as => :link %>
-  <%end %>
+      <%= f.action :submit, :as => :button %>
+      <%= f.action :cancel, :as => :link %>
+    <%end %>
 
 <% end %>
