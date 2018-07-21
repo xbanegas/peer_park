@@ -5,10 +5,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :cell_number
       t.boolean :space_owner
-      t.string :vehicle_make
-      t.string :vehicle_model
-      t.string :vehicle_color
-      t.string :vehicle_license
 
       t.timestamps
     end

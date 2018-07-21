@@ -53,10 +53,6 @@ ActiveRecord::Schema.define(version: 2018_07_21_002253) do
     t.string "last_name"
     t.string "cell_number"
     t.boolean "space_owner"
-    t.string "vehicle_make"
-    t.string "vehicle_model"
-    t.string "vehicle_color"
-    t.string "vehicle_license"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

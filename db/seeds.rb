@@ -9,8 +9,18 @@ require 'faker'
 
 Faker::Config.locale = 'en-US'
 
-100.times do |num|
+seed_size = 10
+
+plates=[]
+until plates.size==seed_size do
+  p="#{rand(899)+100}#{('A'..'Z').to_a.sample(3).join}"
+  plates<<p unless p=~/69|666|ASS|SHT|KKK/
+end
+
+
+seed_size.times do |num|
   u = User.create(
+ 
     email: Faker::Internet.email,
     password: Faker::Internet.password(8),
     encrypted_password: Faker::Internet.password(8),
@@ -31,6 +41,6 @@ Faker::Config.locale = 'en-US'
     make: Faker::Vehicle.make,
     model: Faker::Vehicle.model,
     color: Faker::Vehicle.color,
-    license_plate: "123abc"
+    license_plate: plates[num]
   )
 end
