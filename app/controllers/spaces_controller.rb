@@ -26,14 +26,20 @@ class SpacesController < ApplicationController
   # POST /spaces.json
   def create
     @space = Space.new(space_params.merge(user: current_user))
-
-    respond_to do |format|
-      if @space.save
-        format.html { redirect_to edit_space_path(@space), notice: 'Space was successfully created.' }
-        format.json { render :show, status: :created, location: @space }
-      else
+    if not @space.has_valid_state
+      respond_to do |format|
         format.html { render :new }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
+        format.json { render json: @space, status: :unprocessable_entity }
+      end
+    else
+      respond_to do |format|
+        if @space.save
+          format.html { redirect_to edit_space_path(@space), notice: 'Space was successfully created.' }
+          format.json { render :show, status: :created, location: @space }
+        else
+          format.html { render :new }
+          format.json { render json: @space.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
