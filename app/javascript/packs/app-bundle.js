@@ -1,8 +1,7 @@
 import ReactOnRails from 'react-on-rails';
+import "babel-polyfill";
+import Map from '../bundles/App/components/Map.jsx';
 
-import HelloWorld from '../bundles/App/components/HelloWorld';
-
-// This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
-  HelloWorld,
+  Map,
 });
