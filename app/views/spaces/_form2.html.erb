@@ -5,15 +5,18 @@
  <div class= "weekdays">
 
    <%= f.input :avail_m, :as => :boolean, :label => "Monday" %>
-   <%= f.input :avail_t, :label => "Tuesday" %>
-   <%= f.input :avail_w, :label => "Wednesday" %>
-   <%= f.input :avail_th, :label => "Thursday" %>
-   <%= f.input :avail_f, :label => "Friday" %>
-   <%= f.input :avail_sa, :label => "Saturday" %>
-   <%= f.input :avail_su, :label => "Sunday" %>
+   <%= f.input :avail_t, :as => :boolean, :label => "Tuesday" %>
+   <%= f.input :avail_w, :as => :boolean, :label => "Wednesday" %>
+   <%= f.input :avail_th, :as => :boolean, :label => "Thursday" %>
+   <%= f.input :avail_f, :as => :boolean, :label => "Friday" %>
+   <%= f.input :avail_sa, :as => :boolean, :label => "Saturday" %>
+   <%= f.input :avail_su, :as => :boolean, :label => "Sunday" %>
  </div>
 
     <%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Pick-up / Van"] %>
+   
+    <%= f.input :hourly_rate, :as => :number %>
+   
 
     <%= f.actions   do %>
     <%= f.action :submit, :as => :button %>
