@@ -48,6 +48,11 @@ class SpacesController < ApplicationController
   # PATCH/PUT /spaces/1.json
   def update
     valid_space_params = space_params
+    days = ["avail_m", "avail_t", "avail_w", "avail_th", "avail_f","avail_sa", "avail_su"]
+    unavail_days = days - valid_space_params.keys.select{|p| p.include?"avail"}
+    avail_days = days - unavail_days
+    unavail_days.each{ |day| valid_space_params[day] = false }
+    avail_days.each {|day| valid_space_params[day] = true }
     valid_space_params[:hourly_rate] = (space_params[:hourly_rate].to_f * 100).to_i.to_s
     respond_to do |format|
       if @space.update(valid_space_params)
