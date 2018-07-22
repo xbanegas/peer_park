@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>
@@ -27,7 +26,6 @@
   <tbody>
     <% @spaces.each do |space| %>
       <tr>
-        <td><%= space.user %></td>
         <td><%= space.address %></td>
         <td><%= space.city %></td>
         <td><%= space.state %></td>
@@ -40,7 +38,7 @@
         <td><%= space.avail_f %></td>
         <td><%= space.avail_sa %></td>
         <td><%= space.avail_su %></td>
-        <td><%= space.hourly_rate %></td>
+        <td>$<%= cents_to_dollars space.hourly_rate %></td>
         <td><%= space.description %></td>
         <td><%= link_to 'Show', space %></td>
         <td><%= link_to 'Edit', edit_space_path(space) %></td>
