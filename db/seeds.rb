@@ -9,7 +9,7 @@ require 'faker'
 
 Faker::Config.locale = 'en-US'
 
-seed_size = 10
+seed_size = 100
 
 plates=[]
 until plates.size==seed_size do

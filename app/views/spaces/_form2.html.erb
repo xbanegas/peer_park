@@ -39,6 +39,9 @@
 </div>
 
     <%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Pick-up / Van"] %>
+   
+    <%= f.input :hourly_rate, :as => :number %>
+   
 
 
     <%= f.actions   do %>

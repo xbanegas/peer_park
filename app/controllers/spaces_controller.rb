@@ -19,6 +19,7 @@ class SpacesController < ApplicationController
 
   # GET /spaces/1/edit
   def edit
+    @space.hourly_rate = @space.hourly_rate.to_f / 100
   end
 
   # POST /spaces
@@ -46,8 +47,10 @@ class SpacesController < ApplicationController
   # PATCH/PUT /spaces/1
   # PATCH/PUT /spaces/1.json
   def update
+    valid_space_params = space_params
+    valid_space_params[:hourly_rate] = (space_params[:hourly_rate].to_f * 100).to_i.to_s
     respond_to do |format|
-      if @space.update(space_params)
+      if @space.update(valid_space_params)
         format.html { redirect_to @space, notice: 'Space was successfully updated.' }
         format.json { render :show, status: :ok, location: @space }
       else
@@ -77,4 +80,5 @@ class SpacesController < ApplicationController
     def space_params
       params.require(:space).permit(:user_id, :address, :city, :state, :zip, :size, :avail_m, :avail_t, :avail_w, :avail_th, :avail_f, :avail_sa, :avail_su, :hourly_rate, :description)
     end
+
 end
