@@ -12,7 +12,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-	<body>
+  <body>
+  <header class="navbar">
+        <div class="navbar-class">
+          <div class="containter">
+          <% if user_signed_in? %>
+            <div class="ui compact menu">
+              <div class="ui simple dropdown item">
+                <i class="bars icon"></i>
+                <div class="menu">
+                  <%= link_to('Profile', edit_user_registration_path, class: "item") %>
+                  <div class="item">Account History</div>
+                  <%= link_to('Find a Space', new_reservation_path, class: "item") %>
+                  <%= link_to('List a Space', new_space_path, class: "item") %>
+                  <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "item") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <% else %>
+            <%= link_to('Login', new_user_session_path, { class: 'ui button' })  %>
+            <%= link_to('Sign up to List a Space', new_user_registration_path + '?list=true', { class: 'ui button' })  %>
+            <%= link_to('Sign up to Find a Space', new_user_registration_path + '?list=false', { class: 'ui button'})  %>
+          <% end %>
+      </header>
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
     <%= yield %>
