@@ -10,8 +10,8 @@ export default class Map extends React.Component {
     this.mapStyle = {
 			position: 'relative',
 			top: 0,
-			bottom: 0,
-      width: '75%',
+      bottom: 0,
+      width: '100%',
       height: '80vh',
       'margin-left': 'auto',
       'margin-right': 'auto'
