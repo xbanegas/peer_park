@@ -4,8 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
 
 
-		if current_user.account_type == 'host'
-      #CGI.parse(URI.parse(request.headers["Referer"]).query)["list"][0] == "true"
+		if CGI.parse(URI.parse(request.headers["Referer"]).query)["list"][0] == "true"
 			new_space_path
 		else
 			new_vehicle_path
