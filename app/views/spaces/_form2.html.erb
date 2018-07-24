@@ -45,10 +45,24 @@
 
 <%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Pick-up / Van"] %>
 <%= f.input :hourly_rate, :as => :number %>
-   
-<%= f.actions   do %>
-  <%= f.action :submit, :as => :button %>
+
+<%#= f.actions   do %>
+  <%#= f.action :submit, :as => :button %>
+  <button type="submit" class="btn btn-lg btn-red"></button>
   <%= f.action :cancel, :as => :link %>
-<%end %>
+<%#end %>
+
+<script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_OmuObc3sJ2yMbZzkHJBbsZ01"
+    data-amount="999"
+    data-name="Demo Site"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true"
+    data-label="Rent a Space"
+  ></script>
+
 
 <% end %>
