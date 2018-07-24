@@ -1,17 +1,22 @@
-<h1> Welcome to Peer Park </h1>
 
+<%#= link_to_image("./assets/images/PP_Gray_Icon_Trans.png", root_path) %>
 
-<div class="map-parent">
-  <%= react_component("Map", props: {"MAPBOX_API_KEY": ENV["MAPBOX_API_KEY"]}) %>
-</div>
-
-<div class="ui centered grid">
-  <div class="ui search">
-    <div class="ui large icon input">
-      <input style="width:48em;" class="prompt" type="text" placeholder="Search cities...">
-      <i class="search icon"></i>
+<div class="content">
+    <div class="map-parent">
+    <%= react_component("Map", props: {"MAPBOX_API_KEY": ENV["MAPBOX_API_KEY"]}) %>
     </div>
-      <div class="results"></div>
+
+    <div class="search">
+    <div class="ui centered grid", style="position:fixed;">
+      <div class="ui search">
+        <div class="ui large icon input">
+          <input class="prompt" type="text", placeholder="Search cities...">
+            <i class="search icon"></i>
+        </div>
+      </div>
+    </div>
+    </div>
+            <div class="results"></div>
 </div>
 
 

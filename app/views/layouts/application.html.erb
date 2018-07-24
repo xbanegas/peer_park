@@ -10,9 +10,13 @@
     <%= javascript_pack_tag 'app-bundle' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 
   <body>
+ <div class="container">
+ <div class="grid header">
+<div class="banner">
   <header class="navbar">
         <div class="navbar-class">
           <div class="containter">
@@ -29,14 +33,25 @@
                 </div>
               </div>
             </div>
+            <%= image_tag("Peer_Park_Logo.png", :class => "style_logo", :alt => "Peer Park Logo") %>
+
           </div>
         </div>
+
+      </div>
+
+  </div>
           <% else %>
             <%= link_to('Login', new_user_session_path, { class: 'ui button' })  %>
             <%= link_to('Sign up to List a Space', new_user_registration_path + '?list=true', { class: 'ui button' })  %>
             <%= link_to('Sign up to Find a Space', new_user_registration_path + '?list=false', { class: 'ui button'})  %>
-          <% end %>
-      </header>
+          <% end %>   
+
+  </header>
+
+ </div> 
+ </div>
+ </div>
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
     <%= yield %>

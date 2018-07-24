@@ -1,3 +1,47 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  box-sizing: border-box;
+}
+
+.content {
+  align-content: center;
+}
+
+.banner {
+  background-color: #d11149;
+  position: fixed;
+  // height: 20%;
+  // max-height: 30%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.style_logo {
+  // position: absolute;
+  position: fixed;
+  max-width: 33%;
+  height: auto;
+  top: 0;
+  margin-left: 25%;
+  padding-bottom: 8%;
+}
+
+.map-parent {
+  position: fixed;
+  top: 20%;
+  width: 100%;
+}
+
+.search {
+  position: fixed;
+  // margin-left: auto;
+  // margin-right: auto;
+  top: 75%;
+}
+
+input[type="text"] {
+  width: 40em;
+}
