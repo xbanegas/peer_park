@@ -94,7 +94,6 @@ GEM
       actionpack (>= 3.2.13)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    hirb (0.7.3)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
