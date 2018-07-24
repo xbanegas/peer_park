@@ -33,4 +33,5 @@ yarn-debug.log*
 *.pdf
 *.swp
 .env
+.DS_Store
 
