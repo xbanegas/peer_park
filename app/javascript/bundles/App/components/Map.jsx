@@ -11,8 +11,8 @@ export default class Map extends React.Component {
 			position: 'relative',
 			top: 0,
 			bottom: 0,
-      width: '70%',
-      height: 300,
+      width: '75%',
+      height: 400,
       'margin-left': 'auto',
       'margin-right': 'auto'
 		};
