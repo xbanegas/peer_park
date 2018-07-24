@@ -56,8 +56,8 @@ const addSpacesToMap = async(document, map, userLoc, handleReserveClick) => {
   // let geojson = res.data;
   // geojson.features.forEach(function (space ,i) {
   res.forEach(function (space ,i) {
-    let popupId = `popup-${i}`
-    map = addMarkerToMap(document, map, space, popupId, handleReserveClick) 
+    let popupId = `popup-${i}`;
+    map = addMarkerToMap(document, map, space, popupId, handleReserveClick);
     return map;
   });
 };
