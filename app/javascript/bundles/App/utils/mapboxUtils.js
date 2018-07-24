@@ -9,7 +9,6 @@ const addMarkerToMap = (document, map, space, popupId, handleReserveClick) => {
   // create a HTML element for each feature
   var el = document.createElement('div');
   el.className = 'marker';
-  console.log(el);
   // make a marker for each feature and add to the map
   // let popup = new mapboxgl.Popup({ offset: 25 })
   //   .setHTML(ReactDOMServer.renderToStaticMarkup(
@@ -23,6 +22,7 @@ const addMarkerToMap = (document, map, space, popupId, handleReserveClick) => {
   //     addDirections(map, routeData, document);
   //   });
   // });
+  space = [space[1], space[0]]
   let space_point = turf.point(space);
   let marker = new mapboxgl.Marker(el)
     .setLngLat(space_point.geometry.coordinates)
