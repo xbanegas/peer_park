@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 7c9492b37d74c459d5c6cba24e2467000e5fd38a
+  specs:
+    stripe (3.17.2)
+      faraday (~> 0.10)
+
+GIT
   remote: https://github.com/stympy/faker.git
   revision: 166417af832d496aee0e33fda7640d541f93477f
   branch: master
@@ -89,6 +96,8 @@ GEM
       railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     execjs (2.7.0)
+    faraday (0.15.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -121,6 +130,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -256,6 +266,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  stripe!
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

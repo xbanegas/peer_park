@@ -13,11 +13,16 @@
   <%= f.text_field :last_name%>
   </div>
 
+  <!-- <div class="field">
+  <%#= f.label :account_type, "Account Type" %><br />
+  <%#= f.select :account_type, options_for_select(['host','renter']) %>
+  </div> -->
+
   <div class="field">
   <%= f.label :cell_number, "Mobile Number" %><br />
   <%= f.telephone_field :cell_number%>
   </div>
-  
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

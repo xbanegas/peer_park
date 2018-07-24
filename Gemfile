@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
+#
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -71,4 +74,3 @@ gem 'react_on_rails'
 gem 'mini_racer', platforms: :ruby
 
 gem 'dotenv-rails', groups: [:development, :test]
-
