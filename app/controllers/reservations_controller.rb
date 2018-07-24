@@ -52,7 +52,7 @@ class ReservationsController < ApplicationController
     checkout
   end
   def checkout
-    Stripe.api_key = "sk_test_VPem4PtDFnY6F1uJgTPAppKr"
+    Stripe.api_key = ENV["STRIPE_API_KEY"]
       token = params[:stripeToken]
       charge = Stripe::Charge.create({
       amount: 999,
