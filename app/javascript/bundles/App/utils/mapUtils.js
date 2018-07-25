@@ -22,7 +22,7 @@ const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
 
   // add Nav control
   var nav = new mapboxgl.NavigationControl();
-  map.addControl(nav, 'top-left');
+  map.addControl(nav, 'top-right');
 
   // add GeoLocation Control
   map.addControl(new mapboxgl.GeolocateControl({
