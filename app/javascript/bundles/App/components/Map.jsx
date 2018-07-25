@@ -28,7 +28,7 @@ export default class Map extends React.Component {
     let state = {...this.state}
 		state.userLoc = userLoc;
     state.map = map;
-		this.setState(state);
+    this.setState(state);
   }
 
 	async handleReserveClick(destLoc){

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import mapboxgl from 'mapbox-gl';
-import {addMarkerToMap} from './mapboxUtils';
+import {addMarkerToMap, genRandomLocalPoints, genRandomBeachPoints} from './mapboxUtils';
 
 const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
   mapboxgl.accessToken = MAPBOX_API_KEY;
@@ -31,7 +31,13 @@ const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
     },
     trackUserLocation: true
   }));
-  return map
+  
+  map.on('click', function(e){
+    console.log(e);
+    console.log(map.queryRenderedFeatures(e.point));
+  });
+
+  return map;
 };
 
 const getSpaces = async (geoLoc) => {
@@ -52,13 +58,21 @@ const getSpaces = async (geoLoc) => {
 const addSpacesToMap = async(document, map, userLoc, handleReserveClick) => {
   let position = userLoc;
   let geoLoc = [position.coords.longitude, position.coords.latitude];
-  let res = await getSpaces(geoLoc);
+  // let res = await getSpaces(geoLoc);
+  let res = genRandomLocalPoints();
+  console.log('ress', res);
   // let geojson = res.data;
   // geojson.features.forEach(function (space ,i) {
-  res.forEach(function (space ,i) {
+  res.features.forEach(function (space ,i) {
     let popupId = `popup-${i}`;
     map = addMarkerToMap(document, map, space, popupId, handleReserveClick);
     return map;
+  });
+  res = genRandomBeachPoints();
+  res.features.forEach(function (space, i){
+    let popupId = `popup-10${i}`;
+    map = addMarkerToMap(document,map,space,popupId,handleReserveClick);
+    return map
   });
 };
 

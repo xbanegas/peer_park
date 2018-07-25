@@ -1,4 +1,4 @@
-import * as turf from 'turf';
+import {randomPoint} from '@turf/random';
 import mapboxgl from 'mapbox-gl';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -22,14 +22,46 @@ const addMarkerToMap = (document, map, space, popupId, handleReserveClick) => {
   //     addDirections(map, routeData, document);
   //   });
   // });
-  space = [space[1], space[0]]
-  let space_point = turf.point(space);
+  space = space.geometry.coordinates
+  // space = [space[1], space[0]]
+  // let space_point = turf.point(space);
   let marker = new mapboxgl.Marker(el)
-    .setLngLat(space_point.geometry.coordinates)
+    .setLngLat(space);
     // add popups
     // .setPopup(popup);
+
   marker.addTo(map);
+  // console.log(el)
   return map;
 };
 
-export {addMarkerToMap};
+
+const genRandomLocalPoints = () => {
+  let topBound = 25.925716;
+  let rightBound = -80.189068;
+  let bottomBound = 25.734432;
+  let leftBound =  -80.385792;
+
+  // bbox = [minX, minY, maxX, maxY]
+  let bbox = {bbox: [leftBound, bottomBound, rightBound, topBound] };
+
+  let points = randomPoint(50, bbox);
+
+  console.log(points);
+  return points;
+}
+
+const genRandomBeachPoints = () => {
+  let topBound = 25.822387;
+  let bottomBound = 25.768215;
+  let leftBound = -80.141089;
+  let rightBound = -80.129888;
+
+  let bbox = {bbox: [leftBound, bottomBound, rightBound, topBound]};
+  let points = randomPoint(20, bbox);
+  return points;
+}
+
+
+
+export {addMarkerToMap, genRandomLocalPoints, genRandomBeachPoints};
