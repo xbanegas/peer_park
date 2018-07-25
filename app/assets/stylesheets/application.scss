@@ -15,9 +15,21 @@
  *= require formtastic
  */
 
- .nav {
-     padding: 2em;
+$PRIMARY_RED: #d11149;
+
+ header {
+    height: 20vh;
+    background-image: url("Peer_Park_Logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $PRIMARY_RED;
+    .ui.compact.menu { margin-top: 5%; margin-left: 5%;}
+    .ui.menu .item>i.icon { margin-left: auto; margin-right: auto; }
  }
+
+ p.notice, p.alert { margin: 0; }
+
  .marker {
   background-image: url('space-icon.png');
   background-size: cover;
@@ -26,3 +38,4 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
