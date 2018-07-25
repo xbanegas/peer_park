@@ -21,8 +21,8 @@
  .marker {
   background-image: url('space-icon.png');
   background-size: cover;
-  width: 48px;
-  height: 81px;
+  width: 89px;
+  height: 71px;
   border-radius: 50%;
   cursor: pointer;
 }
