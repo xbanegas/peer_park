@@ -9,7 +9,9 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-on-rails": "11.0.9"
+    "react-on-rails": "11.0.9",
+    "semantic-ui-react": "^0.82.1",
+    "turf": "^3.0.14"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
