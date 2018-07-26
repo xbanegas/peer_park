@@ -4,7 +4,20 @@ class SpacesController < ApplicationController
   # GET /spaces
   # GET /spaces.json
   def index
-    @spaces = Space.where(user_id: current_user.id)
+    respond_to do |format|
+      format.html do
+        if current_user
+          @spaces = Space.where(user_id: current_user.id)
+        else 
+          @spaces = []
+        end
+      end
+      format.json do
+       coords = [params["lon"], params["lat"]]
+       @spaces = Space.near(coords, 2) 
+       render json: @spaces
+      end
+    end
   end
 
   # GET /spaces/1

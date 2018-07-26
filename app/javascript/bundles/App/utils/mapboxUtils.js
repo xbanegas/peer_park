@@ -36,32 +36,8 @@ const addMarkerToMap = (document, map, space, popupId, handleReserveClick) => {
 };
 
 
-const genRandomLocalPoints = () => {
-  let topBound = 25.925716;
-  let rightBound = -80.189068;
-  let bottomBound = 25.734432;
-  let leftBound =  -80.385792;
-
-  // bbox = [minX, minY, maxX, maxY]
-  let bbox = {bbox: [leftBound, bottomBound, rightBound, topBound] };
-
-  let points = randomPoint(50, bbox);
-
-  console.log(points);
-  return points;
-}
-
-const genRandomBeachPoints = () => {
-  let topBound = 25.822387;
-  let bottomBound = 25.768215;
-  let leftBound = -80.141089;
-  let rightBound = -80.129888;
-
-  let bbox = {bbox: [leftBound, bottomBound, rightBound, topBound]};
-  let points = randomPoint(20, bbox);
-  return points;
-}
 
 
 
-export {addMarkerToMap, genRandomLocalPoints, genRandomBeachPoints};
+
+export {addMarkerToMap};

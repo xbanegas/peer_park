@@ -1,22 +1,18 @@
 import axios from 'axios';
+import * as turf from 'turf';
+import {getCoord} from '@turf/invariant';
 import mapboxgl from 'mapbox-gl';
 import {addMarkerToMap, genRandomLocalPoints, genRandomBeachPoints} from './mapboxUtils';
 
+// Initialize The Map
 const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
   mapboxgl.accessToken = MAPBOX_API_KEY;
 
-  let geoLoc;
-  let map;
-
-  // get current location
-  let position = userLoc;
-  geoLoc = [position.coords.longitude, position.coords.latitude];
-
   // initialize map
-  map = new mapboxgl.Map({
+  let map = new mapboxgl.Map({
     container: mapContainer,
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: geoLoc,
+    center: userLoc,
     zoom: 12
   });
 
@@ -26,66 +22,50 @@ const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
 
   // add GeoLocation Control
   map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
+    positionOptions: { enableHighAccuracy: true },
     trackUserLocation: true
   }));
   
-  map.on('click', function(e){
-    console.log(e);
-    console.log(map.queryRenderedFeatures(e.point));
-  });
+  // Handle Map Events
+  // map.on('click', function(e){
+    // console.log(e);
+    // console.log(map.queryRenderedFeatures(e.point));
+  // });
 
   return map;
 };
 
+//  Request nearby Spaces and add them to the Map
+const addSpacesToMap = async(document, map, userLoc, handleReserveClick) => {
+  let res = await getSpaces(userLoc);
+  // let geojson = res.data;
+  // geojson.features.forEach(function (space ,i) {
+    // let popupId = `popup-${i}`;
+    // map = addMarkerToMap(document, map, space, popupId, handleReserveClick);
+    // return map;
+  // });
+};
+
+// Get Spaces from Rails Given User Location
 const getSpaces = async (geoLoc) => {
-  // return await axios.get(`/spaces.json?lon=25&lat=-80`)
-  let spaces = [ [ 25.729882845352492, -80.1634083969233 ],
-  [ 25.83131328097298, -80.22819686233824 ],
-  [ 25.77854550169198, -80.19334246943383 ],
-  [ 25.7897505458167, -80.16055074113888 ],
-  [ 25.808313449672607, -80.21170244502332 ],
-  [ 25.796932877290185, -80.22308835220034 ],
-  [ 25.791673017351915, -80.1555475057403 ],
-  [ 25.773794136308656, -80.18269500048156 ],
-  [ 25.783810715043995, -80.21168376082137 ],
-  [ 25.828856847325387, -80.20906470793574 ] ];
+  console.log(geoLoc);
+  let spacesReqURL = `/spaces.json?lon=${geoLoc[0]}&lat=${geoLoc[1]}`
+  let spaces = await axios.get(spacesReqURL)
+  console.log(spaces)
   return spaces
 }
 
-const addSpacesToMap = async(document, map, userLoc, handleReserveClick) => {
-  let position = userLoc;
-  let geoLoc = [position.coords.longitude, position.coords.latitude];
-  // let res = await getSpaces(geoLoc);
-  let res = genRandomLocalPoints();
-  console.log('ress', res);
-  // let geojson = res.data;
-  // geojson.features.forEach(function (space ,i) {
-  res.features.forEach(function (space ,i) {
-    let popupId = `popup-${i}`;
-    map = addMarkerToMap(document, map, space, popupId, handleReserveClick);
-    return map;
-  });
-  res = genRandomBeachPoints();
-  res.features.forEach(function (space, i){
-    let popupId = `popup-10${i}`;
-    map = addMarkerToMap(document,map,space,popupId,handleReserveClick);
-    return map
-  });
-};
 
-
+// Handle Getting the Current Position
+// Return [lon, lat]
 const loadPosition = async () => {
   try {
     const position = await getCurrentPosition();
-    return position
+    return  [position.coords.longitude, position.coords.latitude];
   } catch (error) {
     console.log(error);
   }
 };
-
 const getCurrentPosition = (options = {}) => {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject, options);
