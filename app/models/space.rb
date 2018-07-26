@@ -2,6 +2,7 @@ class Space < ApplicationRecord
   belongs_to :user
   has_many :reservations
   validates :state, :presence => true
+  geocoded_by latitude: :latitude, longitude: :longitude 
 
 
   def has_valid_state

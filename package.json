@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "@turf/random": "^6.0.2",
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
     "mapbox-gl": "^0.47.0",
