@@ -18,6 +18,8 @@ seed_size.times do |num|
   lat = space_seeds[num] ? space_seeds[num]["coords"][0] : nil
   lon = space_seeds[num] ? space_seeds[num]["coords"][1] : nil 
 
+  availability = Array.new(7).map{(rand 2).zero?}
+
   u = User.create(
  
     email: Faker::Internet.email,
@@ -33,6 +35,14 @@ seed_size.times do |num|
     city: Faker::Address.city,
     state: Faker::Address.state_abbr,
     zip: Faker::Address.zip,
+    avail_m: availability[0],
+    avail_t: availability[1], 
+    avail_w: availability[2],
+    avail_th: availability[3],
+    avail_f: availability[4],
+    avail_sa: availability[5],
+    avail_su: availability[6],
+    hourly_rate: rand(30) * 100,
     latitude: lat,
     longitude: lon
   )

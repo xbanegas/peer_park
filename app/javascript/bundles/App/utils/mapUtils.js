@@ -38,20 +38,19 @@ const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
 //  Request nearby Spaces and add them to the Map
 const addSpacesToMap = async(document, map, userLoc, handleReserveClick) => {
   let res = await getSpaces(userLoc);
-  // let geojson = res.data;
-  // geojson.features.forEach(function (space ,i) {
-    // let popupId = `popup-${i}`;
-    // map = addMarkerToMap(document, map, space, popupId, handleReserveClick);
-    // return map;
-  // });
+  let space = res.data;
+  space.forEach(function (space ,i) {
+    let popupId = `popup-${i}`;
+    map = addMarkerToMap(document, map, space, popupId, handleReserveClick);
+    return map;
+  });
+
 };
 
 // Get Spaces from Rails Given User Location
 const getSpaces = async (geoLoc) => {
-  console.log(geoLoc);
   let spacesReqURL = `/spaces.json?lon=${geoLoc[0]}&lat=${geoLoc[1]}`
   let spaces = await axios.get(spacesReqURL)
-  console.log(spaces)
   return spaces
 }
 
