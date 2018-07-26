@@ -6,9 +6,12 @@
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
     "mapbox-gl": "^0.47.0",
+    "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-datepicker": "^1.5.0",
     "react-dom": "^16.4.1",
+    "react-input-calendar": "^0.5.3",
     "react-on-rails": "11.0.9",
     "semantic-ui-react": "^0.82.1",
     "turf": "^3.0.14"
