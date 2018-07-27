@@ -1,4 +1,4 @@
-<%= form_with(model: reservation, local: true) do |form| %>
+<%= form_with(model: reservation, local: true, html: {:class=>"ui form"}) do |form| %>
   <% if reservation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
@@ -11,9 +11,22 @@
     </div>
   <% end %>
   <%= hidden_field :reservation, :space_id, :value => @space_id %>
-  <%= select_tag(:license_plate, options_for_select(@plates)) %> 
-  <%= react_component("Calendar" ) %>
-  <%= number_field(:reservation, :duration) %>
+  <h4 class="ui dividing header">Reserve a Space</h4>
+  <div>
+    Hourly Rate: $<%= cents_to_dollars(@space.hourly_rate) %>
+  </div>
+  <div class="field">
+    <label>Select License Plate</label>
+    <%= select_tag(:license_plate, options_for_select(@plates), {:class =>"ui input"}) %> 
+  </div>
+  <div class="field">
+    <label>Choose Date</label>
+    <%= react_component("Calendar" ) %>
+  </div>
+  <div class="field">
+    <label>Enter Duration</label>
+    <%= number_field(:reservation, :duration, {:class =>"ui input"}) %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

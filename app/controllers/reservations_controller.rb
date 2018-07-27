@@ -17,6 +17,7 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
     @space_id = params[:space]
+    @space = Space.find @space_id
     @plates = []
     current_user.vehicles.each do |vehicle|
       @plates << [vehicle[:license_plate], vehicle.id]
