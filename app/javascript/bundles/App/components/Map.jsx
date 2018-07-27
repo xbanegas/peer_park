@@ -22,13 +22,11 @@ export default class Map extends React.Component {
   async componentDidMount() {
     let userLoc = await loadPosition();
     let map = await initMap(userLoc, this.mapContainer, this.props.MAPBOX_API_KEY);
-    if (userLoc){
-      addSpacesToMap(document, map, userLoc, this.handleReserveClick);
-    }
+    if (userLoc){ addSpacesToMap(document, map, userLoc, this.handleReserveClick); }
     let state = {...this.state}
 		state.userLoc = userLoc;
     state.map = map;
-		this.setState(state);
+    this.setState(state);
   }
 
 	async handleReserveClick(destLoc){

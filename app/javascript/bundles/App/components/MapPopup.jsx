@@ -3,18 +3,18 @@ import {Button} from 'semantic-ui-react'
 
 export default class Map extends Component {
   render(){
+    console.log(this.props);
+    let url = `reservations/new/`
     return(
       <div className="map-popup">
-        {/* <p>{this.props.vendor.properties.category}</p>
-        <h3>{this.props.vendor.properties.title}</h3> */}
+        <p>{this.props.space.address}</p>
+        <h3>${this.props.space.hourly_rate/100}</h3>
         <div>
           <Button 
-            color="green"
-            id={this.props.styleName} 
-            className="startNav" 
-            onClick={this.props.handleDirectionClick}
+            href={url}
+            // color="green"
           >
-            Go
+          Reserve
           </Button>
         </div>
       </div>

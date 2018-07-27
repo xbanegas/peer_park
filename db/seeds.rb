@@ -1,13 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
 
+require 'faker'
 Faker::Config.locale = 'en-US'
+
+space_seeds = JSON.parse(File.read('db/seed.json'))
 
 seed_size = 100
 
@@ -18,7 +13,13 @@ until plates.size==seed_size do
 end
 
 
+
 seed_size.times do |num|
+  lat = space_seeds[num] ? space_seeds[num]["coords"][0] : nil
+  lon = space_seeds[num] ? space_seeds[num]["coords"][1] : nil 
+
+  availability = Array.new(7).map{(rand 2).zero?}
+
   u = User.create(
  
     email: Faker::Internet.email,
@@ -33,7 +34,17 @@ seed_size.times do |num|
     address: Faker::Address.street_address,
     city: Faker::Address.city,
     state: Faker::Address.state_abbr,
-    zip: Faker::Address.zip
+    zip: Faker::Address.zip,
+    avail_m: availability[0],
+    avail_t: availability[1], 
+    avail_w: availability[2],
+    avail_th: availability[3],
+    avail_f: availability[4],
+    avail_sa: availability[5],
+    avail_su: availability[6],
+    hourly_rate: rand(30) * 100,
+    latitude: lat,
+    longitude: lon
   )
 
   Vehicle.create(

@@ -4,7 +4,20 @@ class SpacesController < ApplicationController
   # GET /spaces
   # GET /spaces.json
   def index
-    @spaces = Space.where(user_id: current_user.id)
+    respond_to do |format|
+      format.html do
+        if current_user
+          @spaces = Space.where(user_id: current_user.id)
+        else
+          @spaces = []
+        end
+      end
+      format.json do
+       coords = [params["lon"], params["lat"]]
+       @spaces = Space.near(coords, 5)
+       render json: @spaces
+      end
+    end
   end
 
   # GET /spaces/1
@@ -88,7 +101,7 @@ class SpacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def space_params
-      params.require(:space).permit(:user_id, :address, :city, :state, :zip, :size, :avail_m, :avail_t, :avail_w, :avail_th, :avail_f, :avail_sa, :avail_su, :hourly_rate, :description)
+      params.require(:space).permit(:user_id, :address, :city, :state, :zip, :size, :avail_m, :avail_t, :avail_w, :avail_th, :avail_f, :avail_sa, :avail_su, :hourly_rate, :description, :parking_spot_image)
     end
 
 end

@@ -1,7 +1,11 @@
 class Space < ApplicationRecord
   belongs_to :user
   has_many :reservations
+  has_one_attached :parking_spot_image
+
+
   validates :state, :presence => true
+   geocoded_by latitude: :latitude, longitude: :longitude
 
 
   def has_valid_state
