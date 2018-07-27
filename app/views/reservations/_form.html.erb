@@ -10,17 +10,6 @@
       </ul>
     </div>
   <% end %>
-  <script
-      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key=<%= ENV["STRIPE_API_PUBLIC_KEY"] %>
-      data-amount="999"
-      data-name="Demo Site"
-      data-description="Widget"
-      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-      data-locale="auto"
-      data-zip-code="true"
-      data-label="Reserve a Space"
-    ></script>
 
   <div class="actions">
     <%= form.submit %>
