@@ -31,6 +31,8 @@ export default class Calendar extends React.Component {
       minTime={moment().hours(1).minutes(0)}
       maxTime={moment().hours(12).minutes(0)}
       dateFormat="LLL"
+      name="reservation[start_time]"
+      id="reservation[start_time]"
     />;
   }
 }

@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2018_07_27_190958) do
 
   # These are extensions that must be enabled in order to support this database
@@ -38,15 +37,16 @@ ActiveRecord::Schema.define(version: 2018_07_27_190958) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "space_id", null: false
     t.datetime "start_time", null: false
+    t.integer "duration", null: false
     t.boolean "confirmed", default: false
     t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "vehicle_id"
     t.index ["space_id"], name: "index_reservations_on_space_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.index ["vehicle_id"], name: "index_reservations_on_vehicle_id"
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -76,11 +76,6 @@ ActiveRecord::Schema.define(version: 2018_07_27_190958) do
     t.string "first_name"
     t.string "last_name"
     t.string "cell_number"
-    t.boolean "space_owner"
-    t.string "vehicle_make"
-    t.string "vehicle_model"
-    t.string "vehicle_color"
-    t.string "vehicle_license"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -113,7 +108,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_190958) do
   end
 
   add_foreign_key "reservations", "spaces"
-  add_foreign_key "reservations", "users"
+  add_foreign_key "reservations", "vehicles"
   add_foreign_key "spaces", "users"
   add_foreign_key "vehicles", "users"
 end
