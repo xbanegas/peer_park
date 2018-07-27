@@ -45,10 +45,12 @@
 
 <%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Pick-up / Van"] %>
 <%= f.input :hourly_rate, :as => :number %>
-   
-<%= f.actions   do %>
-  <%= f.action :submit, :as => :button %>
+
+<%#= f.actions   do %>
+  <%#= f.action :submit, :as => :button %>
+  <button type="submit" class="btn btn-lg btn-red"></button>
   <%= f.action :cancel, :as => :link %>
-<%end %>
+<%#end %>
+
 
 <% end %>

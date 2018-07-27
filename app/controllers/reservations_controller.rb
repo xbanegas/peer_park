@@ -49,6 +49,18 @@ class ReservationsController < ApplicationController
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
+    checkout
+  end
+  def checkout
+    Stripe.api_key = ENV["STRIPE_API_KEY"]
+      token = params[:stripeToken]
+      charge = Stripe::Charge.create({
+      amount: 999,
+      currency: 'usd',
+      source: 'tok_visa',
+      #receipt_email: 'jenny.rosen@example.com',
+  })
+
   end
 
   # DELETE /reservations/1

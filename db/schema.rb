@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_07_27_190958) do
 
   # These are extensions that must be enabled in order to support this database
@@ -76,6 +77,10 @@ ActiveRecord::Schema.define(version: 2018_07_27_190958) do
     t.string "last_name"
     t.string "cell_number"
     t.boolean "space_owner"
+    t.string "vehicle_make"
+    t.string "vehicle_model"
+    t.string "vehicle_color"
+    t.string "vehicle_license"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -91,6 +96,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_190958) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "account_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -40,21 +40,26 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params.merge(user: current_user))
     if not @space.has_valid_state
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render json: @space, status: :unprocessable_entity }
-      end
+        render :new
     else
-      respond_to do |format|
         if @space.save
-          format.html { redirect_to edit_space_path(@space), notice: 'Space was successfully created.' }
-          format.json { render :show, status: :created, location: @space }
+          redirect_to edit_space_path(@space), notice: 'Space was successfully created.'
         else
-          format.html { render :new }
-          format.json { render json: @space.errors, status: :unprocessable_entity }
+          render :new
         end
-      end
     end
+
+    checkout
+  end
+
+  def checkout
+    token = params[:stripeToken]
+    charge = Stripe::Charge.create({
+      amount: 999,
+      currency: 'usd',
+      source: 'tok_visa',
+      #receipt_email: 'jenny.rosen@example.com',
+    })
   end
 
   # PATCH/PUT /spaces/1
