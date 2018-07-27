@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
   <%= hidden_field :reservation, :space_id, :value => @space_id %>
   <h4 class="ui dividing header">Reserve a Space</h4>
   <div>
@@ -27,6 +28,7 @@
     <label>Enter Duration</label>
     <%= number_field(:reservation, :duration, {:class =>"ui input"}) %>
   </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
