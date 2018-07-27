@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as turf from 'turf';
-import {getCoord} from '@turf/invariant';
 import mapboxgl from 'mapbox-gl';
 import {addMarkerToMap, genRandomLocalPoints, genRandomBeachPoints} from './mapboxUtils';
 
