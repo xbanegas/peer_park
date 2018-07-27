@@ -28,6 +28,8 @@ export default class Calendar extends React.Component {
       onChange={this.handleChange}
       showTimeSelect
       dateFormat="LLL"
+      name="reservation[start_time]"
+      id="reservation[start_time]"
     />;
   }
 }

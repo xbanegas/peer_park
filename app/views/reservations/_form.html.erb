@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <%= hidden_field :reservation, :space_id, :value => @space_id %>
+  <%= select_tag(:license_plate, options_for_select(@plates)) %> 
   <%= react_component("Calendar" ) %>
+  <%= number_field(:reservation, :duration) %>
   <div class="actions">
     <%= form.submit %>
   </div>

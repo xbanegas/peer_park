@@ -16,6 +16,11 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    @space_id = params[:space]
+    @plates = []
+    current_user.vehicles.each do |vehicle|
+      @plates << [vehicle[:license_plate], vehicle.id]
+    end
   end
 
   # GET /reservations/1/edit
@@ -26,7 +31,8 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-
+    @reservation.vehicle = Vehicle.find(params[:license_plate])
+    @reservation.start_time = DateTime.parse(params["reservation"]["start_time"])
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -70,6 +76,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:user_id, :space_id, :license_plate, :start_time, :confirmed, :paid)
+      params.require(:reservation).permit(:space_id, :license_plate, :start_time, :confirmed, :paid, :duration)
     end
 end
