@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 7c9492b37d74c459d5c6cba24e2467000e5fd38a
+  specs:
+    stripe (3.17.2)
+      faraday (~> 0.10)
+
+GIT
   remote: https://github.com/stympy/faker.git
   revision: 166417af832d496aee0e33fda7640d541f93477f
   branch: master

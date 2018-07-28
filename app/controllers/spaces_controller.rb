@@ -8,13 +8,13 @@ class SpacesController < ApplicationController
       format.html do
         if current_user
           @spaces = Space.where(user_id: current_user.id)
-        else 
+        else
           @spaces = []
         end
       end
       format.json do
        coords = [params["lon"], params["lat"]]
-       @spaces = Space.near(coords, 5) 
+       @spaces = Space.near(coords, 5)
        render json: @spaces
       end
     end
@@ -40,21 +40,26 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params.merge(user: current_user))
     if not @space.has_valid_state
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render json: @space, status: :unprocessable_entity }
-      end
+        render :new
     else
-      respond_to do |format|
         if @space.save
-          format.html { redirect_to edit_space_path(@space), notice: 'Space was successfully created.' }
-          format.json { render :show, status: :created, location: @space }
+          redirect_to edit_space_path(@space), notice: 'Space was successfully created.'
         else
-          format.html { render :new }
-          format.json { render json: @space.errors, status: :unprocessable_entity }
+          render :new
         end
-      end
     end
+
+    checkout
+  end
+
+  def checkout
+    token = params[:stripeToken]
+    charge = Stripe::Charge.create({
+      amount: 999,
+      currency: 'usd',
+      source: 'tok_visa',
+      #receipt_email: 'jenny.rosen@example.com',
+    })
   end
 
   # PATCH/PUT /spaces/1
@@ -96,7 +101,7 @@ class SpacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def space_params
-      params.require(:space).permit(:user_id, :address, :city, :state, :zip, :size, :avail_m, :avail_t, :avail_w, :avail_th, :avail_f, :avail_sa, :avail_su, :hourly_rate, :description)
+      params.require(:space).permit(:user_id, :address, :city, :state, :zip, :size, :avail_m, :avail_t, :avail_w, :avail_th, :avail_f, :avail_sa, :avail_su, :hourly_rate, :description, :parking_spot_image)
     end
 
 end
