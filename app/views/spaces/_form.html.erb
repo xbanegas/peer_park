@@ -35,16 +35,19 @@
     
   </div>
 
-  <%= f.input :parking_spot_image, :as => :file %>
- 
+  <div class="field">
+    <%= f.label :image, "Add a picture" %><br />
+    <%= f.file_field :image%>
+  </div>
+
   <div class="ui checkbox">
     <input type="checkbox" tabindex="0" class="hidden">
      <label>I agree to the Terms and Conditions</label>
   </div>
-    
-  <%= f.actions   do %>
-    <%= f.action :submit, :as => :button %>
-    <%= f.action :cancel, :as => :link %>
-  <% end %>
-    
+
+  <div class="actions">
+  <%= f.submit  "Sign up", class: 'ui submit button' %>
+  <%= f.submit  "Cancel", class: 'ui submit button' %>
+  </div>
+
 <% end %>
