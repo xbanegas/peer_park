@@ -29,7 +29,13 @@
     <%= number_field(:reservation, :duration, {:class =>"ui input"}) %>
   </div>
 
+   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= ENV["STRIPE_API_PUBLIC_KEY"] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"></script>  
+
   <div class="actions">
-    <%= form.submit %>
+    <%#= form.submit %>
   </div>
 <% end %>

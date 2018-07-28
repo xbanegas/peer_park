@@ -76,3 +76,5 @@ gem 'mini_racer', platforms: :ruby
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'geocoder'
+
+gem 'stripe'
