@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
-    <link href="https://fonts.googleapis.com/css?family=Hind+Madurai|Rubik:700|Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Madurai|Rubik:700|Varela+Round" rel="stylesheet" />
 
     <%= javascript_pack_tag 'app-bundle' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -21,7 +21,7 @@
       <%= image_tag("Peer_Park_Logo.png", :class => "peer-logo") %>
       
       <%#= link_to(image_tag("PP_Gray_Icon_Trans.png", root_path) %>
-    </div>
+
       <% if user_signed_in? %>
       <div class="nav">
         <div class="ui compact menu">
@@ -30,15 +30,14 @@
             <div class="menu">
               <%= link_to('Profile', edit_user_registration_path, class: "item") %>
               <div class="item">Account History</div>
-              <%= link_to('Find a Space', root_path, class: "item") %>
-              <%= link_to('List a Space', new_space_path, class: "item") %>
-              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "item") %>
+                <%= link_to('Find a Space', root_path, class: "item") %>
+                <%= link_to('List a Space', new_space_path, class: "item") %>
+                <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "item") %>
+              </div>
             </div>
           </div>
-          </div>
-          </div>
-
         </div>
+      </div>
       <% else %>
         <%= link_to('Login', new_user_session_path, { class: 'ui button' })  %>
         <%= link_to('Sign up to List a Space', new_user_registration_path + '?list=true', { class: 'ui button' })  %>
