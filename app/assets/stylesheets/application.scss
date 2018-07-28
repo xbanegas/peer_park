@@ -15,22 +15,47 @@
  *= require formtastic
  */
 
-$PRIMARY_RED: #d11149;
+ $PRIMARY_RED: #d11149;
 
- header {
-    height: 20vh;
-    background-image: url("Peer_Park_Logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: $PRIMARY_RED;
-    .ui.compact.menu { margin-top: 5%; margin-left: 5%;}
-    .ui.menu .item>i.icon { margin-left: auto; margin-right: auto; }
+ h1{
+  font-family: 'Rubik', sans-serif;
  }
 
+h2 {
+  font-family: 'Varela Round', sans-serif;
+}
+
+p, h6, h5, h4, ol, ul, td {
+  font-family: 'Hind Madurai', sans-serif;
+}
+
+ header {
+  height: 20vh;
+  // background-image: url("Peer_Park_Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $PRIMARY_RED;
+  .ui.compact.menu { margin-top: 5%; margin-left: 5%;}
+  .ui.menu .item>i.icon { margin-left: auto; margin-right: auto; }
+ }
+.nav{
+  position: relative;
+  top: 0;
+  
+}
+
+.peer-logo{
+  max-height: 135px;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+ 
  p.notice, p.alert { margin: 0; }
 
- .marker {
+.marker {
   background-image: url('space-icon.png');
   background-size: cover;
   width: 89px;

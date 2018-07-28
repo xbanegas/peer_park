@@ -20,15 +20,15 @@
   left: 0;
   
 }
-.style_logo {
-  // position: absolute;
-  position: fixed;
-  max-width: 33%;
-  height: auto;
-  top: 0;
-  margin-left: 25%;
-  padding-bottom: 8%;
-}
+// .style_logo {
+//   // position: absolute;
+//   position: fixed;
+//   max-width: 33%;
+//   height: auto;
+//   top: 0;
+//   margin-left: 25%;
+//   padding-bottom: 8%;
+// }
 
 .map-parent {
   position: relative;
@@ -37,7 +37,7 @@
 }
 
 .search {
-  position: fixed;
+  position: relative;
   // margin-left: auto;
   // margin-right: auto;
   top: 75%;
