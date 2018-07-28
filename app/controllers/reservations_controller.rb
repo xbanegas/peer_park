@@ -36,6 +36,7 @@ class ReservationsController < ApplicationController
     @reservation.start_time = DateTime.parse(params["reservation"]["start_time"])
     respond_to do |format|
       if @reservation.save
+        checkout @reservation, ((@reservation.space.hourly_rate * params[:reservation][:duration].to_i)/100)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
@@ -70,6 +71,26 @@ class ReservationsController < ApplicationController
   end
 
   private
+    def checkout reservation, amount
+      # Amount in cents
+      @amount = amount
+      begin
+        token = params[:stripeToken]
+        charge = Stripe::Charge.create({
+          amount: 666,
+          currency: 'usd',
+          source: 'tok_visa',
+          #receipt_email: 'jenny.rosen@example.com',
+        })
+    
+      rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to root_path
+      end
+      reservation.paid = true
+      reservation.save
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
