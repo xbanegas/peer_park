@@ -16,21 +16,30 @@
  */
 
  $PRIMARY_RED: #d11149;
+ $PRIMARY_GRAY: #2b2d42;
+ $PRIMARY_PURPLE:#6610f2;
+
+
+ h2, h3,h4, h5, h6, p, body {
+	 color: $PRIMARY_GRAY;
+ }
 
  h1{
-  font-family: 'Rubik', sans-serif;
+	font-family: 'Rubik', sans-serif;
+	// color: $PRIMARY_PURPLE;
+	color: $PRIMARY_RED;
  }
 
 h2 {
   font-family: 'Varela Round', sans-serif;
 }
 
-p, h6, h5, h4, ol, ul, td {
+p, h6, h5, h4, h3, ol, ul, td, .ui.button{
   font-family: 'Hind Madurai', sans-serif;
 }
 
  header {
-  height: 20vh;
+  height: 22vh;
   // background-image: url("Peer_Park_Logo.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -39,16 +48,17 @@ p, h6, h5, h4, ol, ul, td {
   .ui.compact.menu { margin-top: 5%; margin-left: 5%;}
   .ui.menu .item>i.icon { margin-left: auto; margin-right: auto; }
  }
+
 .nav{
   position: relative;
-  top: 0;
-  
+	top: 0;
+	margin-right: 2em;
 }
 
 .peer-logo{
-  max-height: 135px;
+  max-height: 110px;
 	position: absolute;
-	top: 10%;
+	top: 12%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
@@ -64,3 +74,22 @@ p, h6, h5, h4, ol, ul, td {
   cursor: pointer;
 }
 
+.redButton {
+	position: absolute;
+	margin-top: 2em;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: $PRIMARY_RED !important;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+  height: 5vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $PRIMARY_RED;
+ }
