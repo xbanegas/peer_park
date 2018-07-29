@@ -13,27 +13,22 @@
 
   <%= hidden_field :reservation, :space_id, :value => @space_id %>
   <h4 class="ui dividing header">Reserve a Space</h4>
-  <div>
+  <div class="required field">
     Hourly Rate: $<%= cents_to_dollars(@space.hourly_rate) %>
   </div>
-  <div class="field">
+  <div class="required field">
     <label>Select License Plate</label>
     <%= select_tag(:license_plate, options_for_select(@plates), {:class =>"ui input"}) %> 
   </div>
-  <div class="field">
+
+  <div class="required field">
     <label>Choose Date</label>
     <%= react_component("Calendar" ) %>
   </div>
-  <div class="field">
-    <label>Enter Duration</label>
-    <%= number_field(:reservation, :duration, {:class =>"ui input"}) %>
-  </div>
 
-   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= ENV["STRIPE_API_PUBLIC_KEY"] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>  
+  <%= react_component("Reservation", props: { hourly_rate: @space.hourly_rate}) %>
+
+<script id="stripebutton" data-key=<%= ENV["STRIPE_API_PUBLIC_KEY"] %> src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-description="Peer Park" data-locale="auto"></script> 
 
   <div class="actions">
     <%#= form.submit %>

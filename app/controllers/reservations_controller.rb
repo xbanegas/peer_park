@@ -36,6 +36,7 @@ class ReservationsController < ApplicationController
     @reservation.start_time = DateTime.parse(params["reservation"]["start_time"])
     respond_to do |format|
       if @reservation.save
+        puts params[:reservation][:duration]
         checkout @reservation, ((@reservation.space.hourly_rate * params[:reservation][:duration].to_i)/100)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
@@ -59,17 +60,6 @@ class ReservationsController < ApplicationController
       end
     end
     checkout
-  end
-  def checkout
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
-      token = params[:stripeToken]
-      charge = Stripe::Charge.create({
-      amount: 999,
-      currency: 'usd',
-      source: 'tok_visa',
-      #receipt_email: 'jenny.rosen@example.com',
-  })
-
   end
 
   # DELETE /reservations/1
