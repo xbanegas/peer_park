@@ -1,4 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+
+<h4>Space Reserved</h4>
+<p>
+<strong>Space:</strong>
+<%= @reservation.space.address %>
+</p>
+<p>
+<strong>Rate:</strong>
+<%= cents_to_dollars(@reservation.space.hourly_rate) %>
+</p>
+<p><strong>Start Time:</strong>
+<%= @reservation.start_time %>
+</p>
+<p>
+  <strong>Duration:</strong>
+  <%= @reservation.duration %>
+</p>
+<p><strong>Vehicle:</strong>
+<%= @reservation.vehicle.license_plate %>
+</p>
+<p><strong>Amount</strong>
+<%= cents_to_dollars(@reservation.space.hourly_rate * @reservation.duration) %>
+</p>
+
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
