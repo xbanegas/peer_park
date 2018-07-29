@@ -75,3 +75,10 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'
 
 gem 'stripe'
+
+gem 'twilio-ruby', '~> 5.11.2'
+
+gem 'sidekiq'
+
+gem 'redis-rails'
+

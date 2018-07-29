@@ -103,6 +103,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jwt (2.1.0)
     libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -133,6 +134,8 @@ GEM
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
+    rack-protection (2.0.3)
+      rack
     rack-proxy (0.6.4)
       rack
     rack-test (1.0.0)
@@ -177,6 +180,23 @@ GEM
       execjs (~> 2.5)
       rails (>= 3.2)
       rainbow (~> 3.0)
+    redis (4.0.1)
+    redis-actionpack (5.0.2)
+      actionpack (>= 4.0, < 6)
+      redis-rack (>= 1, < 3)
+      redis-store (>= 1.1.0, < 2)
+    redis-activesupport (5.0.7)
+      activesupport (>= 3, < 6)
+      redis-store (>= 1.3, < 2)
+    redis-rack (2.0.4)
+      rack (>= 1.5, < 3)
+      redis-store (>= 1.2, < 2)
+    redis-rails (5.0.2)
+      redis-actionpack (>= 5.0, < 6)
+      redis-activesupport (>= 5.0, < 6)
+      redis-store (>= 1.2, < 2)
+    redis-store (1.5.0)
+      redis (>= 2.2, < 5)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -197,6 +217,11 @@ GEM
     selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sidekiq (5.1.3)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -217,6 +242,10 @@ GEM
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
+    twilio-ruby (5.11.2)
+      faraday (~> 0.9)
+      jwt (>= 1.5, <= 2.5)
+      nokogiri (>= 1.6, < 2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.15)
@@ -259,12 +288,15 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rails-erd
   react_on_rails
+  redis-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe
   turbolinks (~> 5)
+  twilio-ruby (~> 5.11.2)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
