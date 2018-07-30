@@ -2,6 +2,7 @@
   "name": "peer_park",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^2.3.0",
     "@rails/webpacker": "3.5",
     "@turf/random": "^6.0.2",
     "axios": "^0.18.0",

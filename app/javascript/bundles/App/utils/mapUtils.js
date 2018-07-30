@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as turf from 'turf';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 import {addMarkerToMap, genRandomLocalPoints, genRandomBeachPoints} from './mapboxUtils';
 
@@ -30,7 +31,10 @@ const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
     // console.log(e);
     // console.log(map.queryRenderedFeatures(e.point));
   // });
-
+  map.addControl( new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken
+    })
+  );
   return map;
 };
 
