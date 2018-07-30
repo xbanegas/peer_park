@@ -1,3 +1,3 @@
 # while true do
-  ExpiredReservationWorker.new.perform
+  # ExpiredReservationWorker.new.perform
 # end

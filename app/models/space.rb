@@ -7,7 +7,9 @@ class Space < ApplicationRecord
 
   validates :state, :presence => true
 
-
+  def make_address
+    [address, city, state, zip.to_s].compact.reject(&:empty?).join(', ')
+  end
 
   def has_valid_state
     states = ["AL", "AR", "AZ", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
@@ -19,9 +21,7 @@ class Space < ApplicationRecord
   end
 
   private
-  def make_address
-    [address, city, state, "us"].compact.reject(&:empty?).join(', ')
-  end
+
   def needs_geocode?
     return true if latitude.nil? && longitude.nil?
     return false
