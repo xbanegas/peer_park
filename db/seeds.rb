@@ -15,8 +15,8 @@ end
 
 
 seed_size.times do |num|
-  lat = space_seeds[num] ? space_seeds[num]["coords"][0] : nil
-  lon = space_seeds[num] ? space_seeds[num]["coords"][1] : nil 
+  lon = space_seeds[num] ? space_seeds[num]["coords"][0] : nil
+  lat = space_seeds[num] ? space_seeds[num]["coords"][1] : nil 
 
   availability = Array.new(7).map{(rand 2).zero?}
 
@@ -29,12 +29,9 @@ seed_size.times do |num|
     last_name: Faker::Name.last_name,
     cell_number: Faker::PhoneNumber.cell_phone
   )
-  Space.create(
+  s = Space.create(
     user_id: u.id,
-    address: Faker::Address.street_address,
-    city: Faker::Address.city,
     state: Faker::Address.state_abbr,
-    zip: Faker::Address.zip,
     avail_m: availability[0],
     avail_t: availability[1], 
     avail_w: availability[2],
@@ -45,6 +42,11 @@ seed_size.times do |num|
     hourly_rate: rand(30) * 100,
     latitude: lat,
     longitude: lon
+  )
+  s.update(
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    zip: Faker::Address.zip,
   )
 
   Vehicle.create(
