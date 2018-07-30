@@ -13,9 +13,9 @@ class SpacesController < ApplicationController
         end
       end
       format.json do
-       coords = [params["lon"], params["lat"]]
-       @spaces = Space.near(coords, 5)
-       render json: @spaces
+        coords = [params["lat"], params["lon"]]
+        @spaces = Space.near(coords, 10)
+        render json: @spaces
       end
     end
   end

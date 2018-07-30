@@ -3,7 +3,6 @@ import {Button} from 'semantic-ui-react'
 
 export default class Map extends Component {
   render(){
-    console.log(this.props);
     let url = `reservations/new?space=${this.props.space.id}`
     return(
       <div className="map-popup">
