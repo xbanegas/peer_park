@@ -1,13 +1,23 @@
 // Place all the styles related to the Spaces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$PRIMARY_RED: #d11149;
+$PRIMARY_GRAY: #2b2d42;
+
+
 h1 {
   text-align: center;
-padding-top: 2rem;
+	padding-top: 1rem;
+	margin:0;
 }
 
+h4 {
+	margin: 0;
+}
 #new_space {
-  margin: 4rem;
+	margin-left: 4rem;
+	margin-right: 4rem;
+	margin-top: 1rem;
 }
     
 li {
@@ -16,15 +26,62 @@ li {
 
 .weekdays {
   display: flex;
-  justify-content: space-around;
+	justify-content: space-around;
+	margin-left: 4em;
+	margin-right: 4em;
+	font-family: 'Varela Round', sans-serif;
 }
-    
-.address {
+		
+.header {
+	margin-left: 2em;
+}
+.address,  {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+	justify-content: space-around;
+	line-height: 0.65em;
+	font-family: 'Varela Round', sans-serif;
+}
+.photo {
+	font-family: 'Varela Round', sans-serif;
 }
 
-.actions {
+.actions > ui_basic_button{
+	padding: 2em;
+}
 
+.size {
+	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	color: $PRIMARY_GRAY;
+}
+.choices-group {
+	padding: 0 0 0 5%;
+}
+.rate {
+	width: 5em;
+	margin-left: auto;
+	margin-right: auto;
+	color: $PRIMARY_GRAY;
+}
+
+.duration.ui.input {
+	width: 7em !important;
+}
+
+.goddamn {
+	position: absolute;
+  left: 30%;
+  padding: 1em;
+}
+
+.total {
+	padding: 1em;
+}
+
+.ui.button {
+	background-color: $PRIMARY_RED !important;
+	color: white;
+	margin-bottom: 1em;
 }

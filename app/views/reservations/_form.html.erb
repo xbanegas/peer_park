@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <%= hidden_field :reservation, :space_id, :value => @space_id %>
-  <h4 class="ui dividing header">Reserve a Space</h4>
-  <div class="required field">
-    Hourly Rate: $<%= cents_to_dollars(@space.hourly_rate) %>
-  </div>
+	<%= hidden_field :reservation, :space_id, :value => @space_id %>
+
+  <h1>Reserve a Space</h1>
+	<div class="goddamn">
+	
   <div class="required field">
     <label>Select License Plate</label>
-    <%= select_tag(:license_plate, options_for_select(@plates), {:class =>"ui input"}) %> 
+    <%= select_tag(:license_plate, options_for_select(@plates), { :style => "width: 7em;", :class =>"ui input"}) %> 
   </div>
 
   <div class="required field">
@@ -26,11 +26,17 @@
     <%= react_component("Calendar" ) %>
   </div>
 
+	<div class="required field">
+		Hourly Rate: <%= number_to_currency(cents_to_dollars(@space.hourly_rate)) %>
+	</div>
+
   <%= react_component("Reservation", props: { hourly_rate: @space.hourly_rate}) %>
 
 <script id="stripebutton" data-key=<%= ENV["STRIPE_API_PUBLIC_KEY"] %> src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-description="Peer Park" data-locale="auto"></script> 
 
-  <div class="actions">
-    <%#= form.submit %>
-  </div>
+<%= link_to 'Back', root_path, class: "ui button" %>
+
+</div>
+
+
 <% end %>

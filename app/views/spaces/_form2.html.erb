@@ -1,10 +1,9 @@
 <%= semantic_form_for @space, :html => {:class => "ui form"} do |f| %>
 
+	<div class= "weekdays">
+		<div class="ui form">
+		<h4> Availability </h4>
 
-
-  <h4 class="ui dividing header"> Availability </h4>
-  <div class= "weekdays">
-    <div class="ui form">
       <div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
         <%= f.label :Monday %>
         <input type="checkbox" name="space[avail_m]" id="space_avail_m" value="<%= @space.avail_m ? '1' : '0' %>" <%= @space.avail_m ? 'checked=""' : "" %>>
@@ -39,18 +38,20 @@
         <%= f.label :Sunday %>
           <input type="checkbox" name="space[avail_su]" id="space_avail_su" value="<%= @space.avail_su ? '1' : '0' %>" <%= @space.avail_su ? 'checked=""' : "" %>>
       </div>
-      <br/>
   </div>
 </div>
+<div class="size">
+	<%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Truck / Van"] %>
+</div>
 
-<%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Pick-up / Van"] %>
+<div class="rate">
 <%= f.input :hourly_rate, :as => :number %>
+</div>
 
-<%#= f.actions   do %>
-  <%#= f.action :submit, :as => :button %>
-  <button type="submit" class="btn btn-lg btn-red"></button>
-  <%= f.action :cancel, :as => :link %>
-<%#end %>
 
+<div class="actions">
+	<%= f.submit "List Space", class: 'ui submit button', :style => "width: 7em;" %>
+	<%= f.submit "Cancel",     class: 'ui cancel button', :style => "width: 7em; " %>
+</div>
 
 <% end %>

@@ -25,9 +25,9 @@ export default class Reservation extends React.Component {
     return(
       <div className="required field">
         <label>Enter Duration</label>
-        <input class="ui input" type="number" name="reservation[duration]" id="reservation_duration" value={this.state.duration} onChange={this.handleChange} />
-        <div>Total: {this.state.amount/100.0}</div>
-        <a class="ui button" onClick={this.handleSubmit}>Submit</a>
+        <input class="duration ui input" type="number" name="reservation[duration]" id="reservation_duration" value={this.state.duration} onChange={this.handleChange} />
+        <div class="total">Total: {(this.state.amount/100.0).toLocaleString('en-US', {style: "currency", currency:"USD"})}</div>
+        <a class="submit ui button" onClick={this.handleSubmit}>Submit</a>
       </div>
     )
   }

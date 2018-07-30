@@ -39,7 +39,7 @@ seed_size.times do |num|
     avail_f: availability[4],
     avail_sa: availability[5],
     avail_su: availability[6],
-    hourly_rate: rand(30) * 100,
+    hourly_rate: rand(5) * 100,
     latitude: lat,
     longitude: lon
   )
