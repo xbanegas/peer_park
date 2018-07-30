@@ -2,17 +2,60 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$PRIMARY_RED: #d11149;
+ $PRIMARY_GRAY: #2b2d42;
+ $PRIMARY_PURPLE:#6610f2;
 
-.profilefields {
+#new_user {
 	margin-top: 1em;
 	margin-bottom: 1em;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 25%;
+	margin-right: 25%;
 	font-family: 'Varela Round', sans-serif;
+	font-size: 1em;
+}
+
+// .signupform, .pwords, {
+// 	// width: 15em;
+// 	margin-top: 1em;
+// 	margin-bottom: 1em;
+// 	margin-left: 10% !important;
+// 	margin-right: 10% !important;
+// }
+
+.ui.form .field>label {
+	font-family: 'Varela Round', sans-serif;
+	color: $PRIMARY_GRAY!important;
+}
+
+.cell {
+	width: 8em;
+	margin-right: 1em;
+}
+
+.email {
+	width: 15em;
+	// margin-left: 1em;
+}
+
+em {
+	font-size: .75em;
+}
+
+.confirmation {
+	// margin-top: 1.25em;
+	margin-bottom: 0em;
+	margin-left: .5em;
 }
 
 .actions {
-	margin-left: auto;
-	margin-right: auto;
-	font-family: 'Varela Round', sans-serif;
+	margin-top: 0.55em;
+}
+
+.loginbttn {
+	width: 12em;
+}
+
+.deviselinks {
+	margin-left: 28%;
 }

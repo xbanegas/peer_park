@@ -28,6 +28,7 @@
 	font-family: 'Rubik', sans-serif;
 	// color: $PRIMARY_PURPLE;
 	color: $PRIMARY_RED;
+	
  }
 
 h2 {
@@ -44,7 +45,7 @@ p, h6, h5, h4, h3, ol, ul, td, .ui.button{
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: $PRIMARY_RED;
+	background-color: $PRIMARY_RED;
   .ui.compact.menu { margin-top: 5%; margin-left: 5%;}
   .ui.menu .item>i.icon { margin-left: auto; margin-right: auto; }
  }
@@ -75,10 +76,16 @@ p, h6, h5, h4, h3, ol, ul, td, .ui.button{
 }
 
 .redButton {
-	position: absolute;
-	margin-top: 2em;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	bottom: 10em !important;
+	transform: translate(-50%,-50%)!important;
+	background-color: $PRIMARY_RED !important;
+	color: white !important;
+}
+
+.grayButton {
+	bottom: 10em !important;
+	transform: translate(-50%,-50%)!important;
+	background-color: #8d99ae !important;
 	color: $PRIMARY_RED !important;
 }
 
@@ -91,5 +98,5 @@ footer {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: $PRIMARY_RED;
+	background-color: $PRIMARY_RED;
  }

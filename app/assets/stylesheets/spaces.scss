@@ -42,7 +42,6 @@ li {
 	line-height: 0.65em;
 	font-family: 'Varela Round', sans-serif;
 }
-
 .photo {
 	font-family: 'Varela Round', sans-serif;
 }
@@ -57,14 +56,32 @@ li {
 	margin-right: auto;
 	color: $PRIMARY_GRAY;
 }
-
 .choices-group {
 	padding: 0 0 0 5%;
 }
-
 .rate {
 	width: 5em;
 	margin-left: auto;
 	margin-right: auto;
 	color: $PRIMARY_GRAY;
+}
+
+.duration.ui.input {
+	width: 7em !important;
+}
+
+.goddamn {
+	position: absolute;
+  left: 30%;
+  padding: 1em;
+}
+
+.total {
+	padding: 1em;
+}
+
+.ui.button {
+	background-color: $PRIMARY_RED !important;
+	color: white;
+	margin-bottom: 1em;
 }
