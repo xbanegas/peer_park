@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  # <strong>Cover image:</strong>
+  <#%= image_tag @space.parking_spot_image, height: 250 %>
+</p>
+
+<p>
   <strong>User:</strong>
   <%= @space.user %>
 </p>
@@ -25,10 +30,7 @@
   <%= @space.zip %>
 </p>
 
-<p>
-  <strong>Cover image:</strong>
-  <%= image_tag @space.parking_spot_image, height: 250 %>
-</p>
+
 
 <p>
   <strong>Size:</strong>

@@ -4,45 +4,27 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Size</th>
-      <th>Avail m</th>
-      <th>Avail t</th>
-      <th>Avail w</th>
-      <th>Avail th</th>
-      <th>Avail f</th>
-      <th>Avail sa</th>
-      <th>Avail su</th>
-      <th>Hourly rate</th>
-      <th>Description</th>
+		<tr>
+				<th><h2>Address</h2></th>
+				<th><h2>City</h2></th>
+				<th><h2>State</h2></th>
+				<th><h2>Zip</h2></th><br/>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @spaces.each do |space| %>
-      <tr>
-        <td><%= space.address %></td>
-        <td><%= space.city %></td>
-        <td><%= space.state %></td>
-        <td><%= space.zip %></td>
-        <td><%= space.size %></td>
-        <td><%= space.avail_m %></td>
-        <td><%= space.avail_t %></td>
-        <td><%= space.avail_w %></td>
-        <td><%= space.avail_th %></td>
-        <td><%= space.avail_f %></td>
-        <td><%= space.avail_sa %></td>
-        <td><%= space.avail_su %></td>
-        <td>$<%= cents_to_dollars space.hourly_rate %></td>
-        <td><%= space.description %></td>
+			<tr>
+				<div class="space">
+					<td><%= space.address %></td>
+					<td><%= space.city %></td>
+					<td><%= space.state %></td>
+					<td><%= space.zip %></td>
+				</div>
         <td><%= link_to 'Show', space %></td>
         <td><%= link_to 'Edit', edit_space_path(space) %></td>
-        <td><%= link_to 'Destroy', space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

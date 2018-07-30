@@ -11,8 +11,16 @@ h1 {
 	margin:0;
 }
 
+h2 {
+	font-size: 1.25em;
+	margin: .5em;
+}
 h4 {
 	margin: 0;
+}
+
+link_to {
+	color: $PRIMARY_RED;
 }
 #new_space {
 	margin-left: 4rem;
@@ -85,3 +93,15 @@ li {
 	color: white;
 	margin-bottom: 1em;
 }
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	flex-wrap: wrap
+}
+
+space {
+	margin-bottom: 1em;
+}
+
