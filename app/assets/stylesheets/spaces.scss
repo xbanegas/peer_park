@@ -46,10 +46,9 @@ li {
 	font-family: 'Varela Round', sans-serif;
 }
 
-.actions > ui_basic_button, ui_submit_button, ui_cancel_button{
-	padding: 2em;
-	text-align: center;
-}
+// .actions > ui_basic_button, ui_submit_button, ui_cancel_button{
+// 	padding: 2em;
+// }
 
 // .ui radio checkbox {
 // 	margin-top: 1.5em;
@@ -109,16 +108,14 @@ space {
 	margin-left: 20%;
 }
 
-.container {
-	margin-left: 15%;
-	margin-right: 15%;
-}
- 
-.formtastic .text textarea {
-	height: 5em !important;
-	font-family: 'Varela Round', sans-serif !important;;
+// .container {
+// 	margin-left: 15%;
+// 	margin-right: 15%;
+// }
+#space_hourly_rate {
+	width: 40%;
 }
 
-.number {
-	width: 40%;
+#space_description {
+	height: 6em !important;
 }

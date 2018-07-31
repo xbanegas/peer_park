@@ -38,18 +38,24 @@
 					<input type="checkbox" name="space[avail_su]" id="space_avail_su" value="<%= @space.avail_su ? '1' : '0' %>" <%= @space.avail_su ? 'checked=""' : "" %>>
 			</div>
 	</div>
-
-		<%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Truck / Van"] %>
-		<%= f.input :hourly_rate, :as => :number, class: "hrfrmtw" %>
-		<%= f.input :description%>
-
+		<div class="field">
+			<%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Truck / Van"] %>
+		</div>
+		<div class="field">
+			<%= f.label :hourly_rate %>
+			<%= f.text_field :hourly_rate, :as => :number %>
+		</div>
+		<div class="field">
+			<%= f.label :description %>
+			<%= f.text_field :description %>
+		</div>
 	</form>
 
-		<div class="actions">
-			<%= f.submit "List Space", class: 'ui submit button', :style => "width: 7em;" %>
-			<%= f.submit "Cancel", class: 'ui cancel button', :style => "width: 7em; " %>
-			<%= link_to "Back", :back, class: 'ui submit button', :style => "width: 7em; " %>
-		</div>
+	<div class="actions">
+		<%= f.submit "List Space", class: 'ui submit button', :style => "width: 7em;" %>
+		<%= f.submit "Cancel", class: 'ui cancel button', :style => "width: 7em; " %>
+		<%= link_to "Back", :back, class: 'ui submit button', :style => "width: 7em; " %>
+	</div>
 
 
 <% end %>
