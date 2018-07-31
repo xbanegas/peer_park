@@ -1,86 +1,103 @@
-<p id="notice"><%= notice %></p>
+<div class="yourspaceinfoshit">
 
-<p>
-  # <strong>Cover image:</strong>
-  <#%= image_tag @space.parking_spot_image, height: 250 %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @space.user %>
-</p>
+	<h1> Your Space Info </h1>
 
-<p>
-  <strong>Address:</strong>
-  <%= @space.address %>
-</p>
+	<p>
+		# <strong>Cover image:</strong>
+		<#%= image_tag @space.parking_spot_image, height: 250 %>
+	</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @space.city %>
-</p>
+	<p>
+	<%= hidden_field :User, @space.user %>
+	</p>
 
-<p>
-  <strong>State:</strong>
-  <%= @space.state %>
-</p>
+	<h2>Address</h2>
+	
+	<p>
+		<%#= @space.address %>
+	</p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @space.zip %>
-</p>
+	<p>
+		<%#= @space.city %>
+	</p>
 
+	<p>
+		<%#= @space.state %>
+	</p>
 
+	<p>
+		<%#= @space.zip %>
+	</p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @space.size %>
-</p>
+	<table>
+		<thead>
+			<tr>
+				<h2> Available </h2>
+			</tr>
+		</thead>
+		<tbody>
 
-<p>
-  <strong>Avail m:</strong>
-  <%= @space.avail_m %>
-</p>
+			<td><% if @space.avail_m %>
+						Monday
+					<% else %> 
+						<% style="display: none;" %>
+					<% end %>
+			</td>
+			<td><% if @space.avail_t %>
+						Tuesday
+					<% else %> 
+						<% style="display: none;" %>
+					<% end %>
+			</td>
+			<td><% if @space.avail_w %>
+						Wednesday
+						<% else %> 
+							<% style="display: none;" %>
+					<% end %>
+			</td>
+			<td><% if @space.avail_th %>
+						Thursday
+					<% else %> 
+						<% style="display: none;" %>
+					<% end %>
+			</td>
+			<td><% if @space.avail_f %>
+						Friday
+					<% else %> 
+						<% style="display: none;" %>
+					<% end %>
+			</td>
+			<td><% if @space.avail_sa %>
+						Saturday
+					<% else %> 
+						<% style="display: none;" %>
+					<% end %>
+					</td>
+			<td><% if @space.avail_su %>
+						Sunday
+					<% else %> 
+						<% style="display: none;" %>
+					<% end %>
+			</td>
+		</tbody>
+	</table>
 
-<p>
-  <strong>Avail t:</strong>
-  <%= @space.avail_t %>
-</p>
+	<p>
+	<h2>Hourly Rate</h2> <%= number_to_currency(cents_to_dollars(@space.hourly_rate)) %>
+	</p>
 
-<p>
-  <strong>Avail w:</strong>
-  <%= @space.avail_w %>
-</p>
+	<p>
+	<h2>Size</h2>
+	<%= @space.size %>
+	</p>
 
-<p>
-  <strong>Avail th:</strong>
-  <%= @space.avail_th %>
-</p>
+	<p>
+		<h2>Description</h2>
+		<%= @space.description %>
+	</p>
 
-<p>
-  <strong>Avail f:</strong>
-  <%= @space.avail_f %>
-</p>
-
-<p>
-  <strong>Avail sa:</strong>
-  <%= @space.avail_sa %>
-</p>
-
-<p>
-  <strong>Avail su:</strong>
-  <%= @space.avail_su %>
-</p>
-
-<p>
-  <strong>Hourly rate:</strong>
-  <%= cents_to_dollars @space.hourly_rate %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @space.description %>
-</p>
-
-<%= link_to 'Edit', edit_space_path(@space) %> |
-<%= link_to 'Back', spaces_path %>
+	<%= link_to 'Edit', edit_space_path(@space) %> 
+	<%= link_to 'Back', spaces_path %>
+</div>
