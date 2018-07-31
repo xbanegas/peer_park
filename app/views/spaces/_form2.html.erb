@@ -1,51 +1,55 @@
 <%= semantic_form_for @space, :html => {:class => "ui form"} do |f| %>
-<div class="allformtwo ui form">
-	<h4> Availability </h4>
-	<div class="everydaytoggilin">
-	<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
-		<%= f.label :Monday %>
-		<input type="checkbox" name="space[avail_m]" id="space_avail_m" value="<%= @space.avail_m ? '1' : '0' %>" <%= @space.avail_m ? 'checked=""' : "" %>>
+	
+	<form class="allformtwo ui form">
+		<h4> Availability </h4>
+		<div class="everydaytoggilin">
+			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
+				<%= f.label :Monday %>
+				<input type="checkbox" name="space[avail_m]" id="space_avail_m" value="<%= @space.avail_m ? '1' : '0' %>" <%= @space.avail_m ? 'checked=""' : "" %>>
+			</div>
+				<br/>
+			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
+				<%= f.label :Tuesday %>
+				<input type="checkbox" name="space[avail_t]" id="space_avail_t" value="<%= @space.avail_t ? '1' : '0' %>" <%= @space.avail_t ? 'checked=""' : "" %>>
+			</div>
+				<br/>
+			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
+				<%= f.label :Wednesday %>
+					<input type="checkbox" name="space[avail_w]" id="space_avail_w" value="<%= @space.avail_w ? '1' : '0' %>" <%= @space.avail_w ? 'checked=""' : "" %>>
+			</div>
+				<br/>
+			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
+				<%= f.label :Thursday %>
+					<input type="checkbox" name="space[avail_th]" id="space_avail_th" value="<%= @space.avail_th ? '1' : '0' %>" <%= @space.avail_th ? 'checked=""' : "" %>>
+			</div>
+				<br/>
+			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
+				<%= f.label :Friday %>
+					<input type="checkbox" name="space[avail_f]" id="space_avail_f" value="<%= @space.avail_f ? '1' : '0' %>" <%= @space.avail_f ? 'checked=""' : "" %>>
+			</div>
+				<br/>
+			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
+				<%= f.label :Saturday %>
+					<input type="checkbox" name="space[avail_sa]" id="space_avail_sa" value="<%= @space.avail_sa ? '1' : '0' %>" <%= @space.avail_sa ? 'checked=""' : "" %>>
+			</div>
+				<br/>
+			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
+				<%= f.label :Sunday %>
+					<input type="checkbox" name="space[avail_su]" id="space_avail_su" value="<%= @space.avail_su ? '1' : '0' %>" <%= @space.avail_su ? 'checked=""' : "" %>>
+			</div>
 	</div>
-		<br/>
-	<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
-		<%= f.label :Tuesday %>
-		<input type="checkbox" name="space[avail_t]" id="space_avail_t" value="<%= @space.avail_t ? '1' : '0' %>" <%= @space.avail_t ? 'checked=""' : "" %>>
-	</div>
-		<br/>
-	<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
-		<%= f.label :Wednesday %>
-			<input type="checkbox" name="space[avail_w]" id="space_avail_w" value="<%= @space.avail_w ? '1' : '0' %>" <%= @space.avail_w ? 'checked=""' : "" %>>
-	</div>
-		<br/>
-	<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
-		<%= f.label :Thursday %>
-			<input type="checkbox" name="space[avail_th]" id="space_avail_th" value="<%= @space.avail_th ? '1' : '0' %>" <%= @space.avail_th ? 'checked=""' : "" %>>
-	</div>
-		<br/>
-	<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
-		<%= f.label :Friday %>
-			<input type="checkbox" name="space[avail_f]" id="space_avail_f" value="<%= @space.avail_f ? '1' : '0' %>" <%= @space.avail_f ? 'checked=""' : "" %>>
-	</div>
-		<br/>
-	<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
-		<%= f.label :Saturday %>
-			<input type="checkbox" name="space[avail_sa]" id="space_avail_sa" value="<%= @space.avail_sa ? '1' : '0' %>" <%= @space.avail_sa ? 'checked=""' : "" %>>
-	</div>
-		<br/>
-	<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
-		<%= f.label :Sunday %>
-			<input type="checkbox" name="space[avail_su]" id="space_avail_su" value="<%= @space.avail_su ? '1' : '0' %>" <%= @space.avail_su ? 'checked=""' : "" %>>
-	</div>
-	</div>
+
 		<%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Truck / Van"] %>
-		<%= f.input :hourly_rate, :as => :number %>
+		<%= f.input :hourly_rate, :as => :number, class: "hrfrmtw" %>
 		<%= f.input :description%>
 
-	<div class="actions">
-		<%= f.submit "List Space", class: 'ui submit button', :style => "width: 7em;" %>
-		<%= f.submit "Cancel", class: 'ui cancel button', :style => "width: 7em; " %>
-		<%= link_to "Back", :back, class: 'ui submit button', :style => "width: 7em; " %>
+	</form>
+
+		<div class="actions">
+			<%= f.submit "List Space", class: 'ui submit button', :style => "width: 7em;" %>
+			<%= f.submit "Cancel", class: 'ui cancel button', :style => "width: 7em; " %>
+			<%= link_to "Back", :back, class: 'ui submit button', :style => "width: 7em; " %>
 		</div>
-</div>
+
 
 <% end %>
