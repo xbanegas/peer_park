@@ -7,6 +7,16 @@
 <%= @reservation.space.address %>
 </p>
 <p>
+  <strong>Cover image:</strong>
+  <%#if Space.last.parking_spot_image.attached?  %>
+  <% @space = Space.last %>
+  <% if @space.parking_spot_image.attached?  %>
+    <%= image_tag @space.parking_spot_image, height: 250 %>
+  <% else %>
+  <%= image_tag 'missing.png', height: 250 %>
+  <% end %>
+</p>
+<p>
 <strong>Rate:</strong>
 <%= cents_to_dollars(@reservation.space.hourly_rate) %>
 </p>
