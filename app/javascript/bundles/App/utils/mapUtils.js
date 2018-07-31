@@ -31,9 +31,9 @@ const initMap = (userLoc, mapContainer, MAPBOX_API_KEY) =>{
     // console.log(e);
     // console.log(map.queryRenderedFeatures(e.point));
   // });
-  map.addControl( new MapboxGeocoder({
+  map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken
-    })
+    }), 'bottom-left'
   );
   return map;
 };
