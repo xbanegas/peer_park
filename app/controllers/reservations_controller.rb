@@ -5,7 +5,17 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.where(user_id: current_user.id)
+    vehicle_reservations = Reservation.vehicle_by_user current_user
+    @vehicle_reservations = Reservation.date_sort vehicle_reservations
+    @vehicle_past_total = Reservation.total @vehicle_reservations[:past]
+		@vehicle_upcoming_total = Reservation.total @vehicle_reservations[:current]
+		@vehicle_upcoming_total += Reservation.total @vehicle_reservations[:future]
+
+		space_reservations = Reservation.space_by_user current_user
+		@space_reservations = Reservation.date_sort space_reservations
+		@space_past_total = Reservation.total @space_reservations[:past]
+		@space_upcoming_total = Reservation.total @space_reservations[:current]
+		@space_upcoming_total += Reservation.total @space_reservations[:future]
   end
 
   # GET /reservations/1
@@ -33,10 +43,10 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.vehicle = Vehicle.find(params[:license_plate])
-    @reservation.start_time = DateTime.parse(params["reservation"]["start_time"])
+    @reservation.start_time = DateTime.parse(params["reservation"]["start_time"] + ' EDT -04:00').utc
+    p @reservation 
     respond_to do |format|
       if @reservation.save
-        puts params[:reservation][:duration]
         checkout @reservation, ((@reservation.space.hourly_rate * params[:reservation][:duration].to_i)/100)
         NewReservationWorker.new.perform_async(@reservation)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
