@@ -11,12 +11,12 @@
   <% if @reservation.space.parking_spot_image.attached?  %>
     <%= image_tag @reservation.space.parking_spot_image, height: 250 %>
   <% else %>
-    <%= image_tag 'missing.png', height: 250 %>
+  <%= image_tag 'missing.png', height: 250 %>
   <% end %>
 </p>
 <p>
 <strong>Rate:</strong>
-<%= format_currency @reservation.space.hourly_rate %>
+<%= format_currency(@reservation.space.hourly_rate) %>
 </p>
 <p><strong>Start Time:</strong>
 <%= @reservation.start_time %>
@@ -29,7 +29,7 @@
 <%= @reservation.vehicle.license_plate %>
 </p>
 <p><strong>Amount</strong>
-<%= format_currency (@reservation.space.hourly_rate * @reservation.duration) %>
+<%= cents_to_dollars(@reservation.space.hourly_rate * @reservation.duration) %>
 </p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |

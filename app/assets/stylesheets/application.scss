@@ -100,3 +100,8 @@ footer {
   background-position: center;
 	background-color: $PRIMARY_RED;
  }
+
+.react-datepicker-popper { 
+	width: 500px;
+	transform: translate3d(-19px, 131px, 0px)!important;
+}
