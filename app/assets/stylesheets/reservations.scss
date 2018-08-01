@@ -24,8 +24,9 @@ h1 {
 }
 
 .react-datepicker-popper {
-	// transform: translate3d(-36px, -442px, 0px) !important;
-	left: 11px !important;
+	// left: 11px !important;
+	width: 500px;
+	transform: translate3d(-19px, 131px, 0px)!important;
 }
 
 .react-datepicker {

@@ -1,6 +1,4 @@
-<%= semantic_form_for @space, :html => {:class => "ui form"} do |f| %>
-	
-	<form class="allformtwo ui form">
+<%= semantic_form_for @space, :html => {:class => "allformtwo ui form"} do |f| %>
 		<h4> Availability </h4>
 		<div class="everydaytoggilin">
 			<div class="ui toggle checkbox <%= @space.avail_m ? 'checked' : '' %>">
@@ -51,13 +49,12 @@
 			<%= f.text_field :description %>
 		</div>
 	</div>	
-	</form>
 
-	<div class="actions">
-		<%= f.submit "List Space", class: 'ui submit button', :style => "width: 7em;" %>
-		<%= f.submit "Cancel", class: 'ui cancel button', :style => "width: 7em; " %>
-		<%= link_to "Back", :back, class: 'ui submit button', :style => "width: 7em; " %>
-	</div>
+	<%= f.actions do %>
+		<%= f.action :submit, :as => :button, :button_html => {class: 'ui submit button'}, :style => "width: 7em;" %>
+		<%= f.action :reset, :as => :button, :button_html => {class: 'ui cancel button'}, :style => "width: 7em; " %>
+		<li class="action button_action"><button class="ui cancel button" href="<%= root_path %>">Cancel</button></li>
+	<% end %>
 
 
 <% end %>
