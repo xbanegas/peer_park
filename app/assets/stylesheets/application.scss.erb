@@ -67,7 +67,7 @@ p, h6, h5, h4, h3, ol, ul, td, .ui.button{
  p.notice, p.alert { margin: 0; }
 
 .marker {
-  background-image: url('space-icon.png');
+  background-image: url('<%= asset_path("space-icon.png") %> ');
   background-size: cover;
   width: 89px;
   height: 71px;
@@ -100,3 +100,8 @@ footer {
   background-position: center;
 	background-color: $PRIMARY_RED;
  }
+
+.react-datepicker-popper { 
+	width: 500px;
+	transform: translate3d(-19px, 131px, 0px)!important;
+}
