@@ -28,5 +28,9 @@ class Reservation < ApplicationRecord
 
   def amount
     self.space.hourly_rate * self.duration
-  end
+	end
+	
+	def print_time
+		self.start_time.strftime("%I:%M%p") + self.start_time.strftime(" on %m/%d/%Y")
+	end
 end
