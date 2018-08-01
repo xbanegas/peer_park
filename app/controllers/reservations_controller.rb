@@ -44,7 +44,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.vehicle = Vehicle.find(params[:license_plate])
     @reservation.start_time = DateTime.parse(params["reservation"]["start_time"] + ' EDT -04:00').utc
-    p @reservation 
+    p @reservation
     respond_to do |format|
       if @reservation.save
         checkout @reservation, ((@reservation.space.hourly_rate * params[:reservation][:duration].to_i)/100)
@@ -90,12 +90,12 @@ class ReservationsController < ApplicationController
       begin
         token = params[:stripeToken]
         charge = Stripe::Charge.create({
-          amount: 666,
+          amount: @amount *100,
           currency: 'usd',
           source: 'tok_visa',
           #receipt_email: 'jenny.rosen@example.com',
         })
-    
+
       rescue Stripe::CardError => e
         flash[:error] = e.message
         redirect_to root_path
