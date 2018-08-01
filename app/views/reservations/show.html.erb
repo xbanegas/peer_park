@@ -1,39 +1,37 @@
-<form class="reserve ui form">
+<form class=" ui form">
 <p id="notice"><%= notice %></p>
 
-
 <h1>Space Reserved</h1>
-<p>
-<h4>Space</h4>
-<%= @reservation.space.address %>
-</p>
-<p>
 
-  <strong>Cover image:</strong>
-  <% if @reservation.space.parking_spot_image.attached?  %>
-    <%= image_tag @reservation.space.parking_spot_image, height: 250 %>
-  <% else %>
-  <%= image_tag 'missing.png', height: 250 %>
-  <% end %>
-</p>
-<p>
-<strong>Rate:</strong>
-<%= format_currency(@reservation.space.hourly_rate) %>
-</p>
-<p><h4>Start Time</h4>
-<%= @reservation.start_time %>
-</p>
-<p>
-  <h4>Duration</h4>
-  <%= @reservation.duration %>
-</p>
-<p><h4>Vehicle:</h4>
-<%= @reservation.vehicle.license_plate %>
-</p>
+	<% if @reservation.space.parking_spot_image.attached?  %>
+		<%= image_tag @reservation.space.parking_spot_image, height: 250 %>
+	<% else %>
+		<%= image_tag 'missing.png', height: 250 %>
+	<% end %>
+	<%= @reservation.space.address %>
 
-<p><strong>Amount</strong>
-<%= cents_to_dollars(@reservation.space.hourly_rate * @reservation.duration) %>
-</p>
+<div class="reserve">
+	<h4>Rate:</h4>
+	<%= format_currency @reservation.space.hourly_rate %>
+	
+	<p>
+	<h4>Start Time</h4>
+	<%= @reservation.start_time %>
+
+	<p>
+		<h4>Duration</h4>
+		<%= @reservation.duration %>
+	</p>
+	<p>
+	<h4>Vehicle</h4>
+	<%= @reservation.vehicle.license_plate %>
+	</p>
+
+	<p><h4>Amount</h4>
+	<%= format_currency (@reservation.space.hourly_rate * @reservation.duration) %>
+	</p>
+
+</div>	
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
