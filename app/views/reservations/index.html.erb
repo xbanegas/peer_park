@@ -1,63 +1,69 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container account-history">
 <h1>Account History</h1>
 
 <% unless @vehicle_reservations.empty? %>
-<h4>My Vehicles</h4>
-<h5>Upcoming</h5>
-<table>
-	<thead>
-		<tr>
-			<th>Vehicle</th>
-			<th>Start Time</th>
-			<th>Hours</th>
-			<th>Amount</th>
-		</tr>
-	</thead>
-	<tbody>
-    <% (@vehicle_reservations[:current]+@vehicle_reservations[:future]).each do |reservation| %>
-      <tr>
-        <td><%= reservation.vehicle.license_plate %></td>
-        <td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
-        <td><%= reservation.duration %></td>
-        <td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
-        <td><%= link_to 'Show', reservation %></td>
-        <!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-	</tbody>
-</table>
-<div class="total">Total: <%= format_currency(@vehicle_upcoming_total) %></div>
-<h5>Past 30 Days</h5>
-<table>
-  <thead>
-    <tr>
-      <th>Vehicle</th>
-      <th>Start Time</th>
-      <th>Hours</th>
-      <th>Amount</th>
-    </tr>
-  </thead>
+<h3>My Vehicles</h3>
+<% unless (@vehicle_reservations[:current]+@vehicle_reservations[:future]).empty? %>
+	<h5>Upcoming</h5>
+	<table>
+		<thead>
+			<tr>
+				<th>Vehicle</th>
+				<th>Start Time</th>
+				<th>Hours</th>
+				<th>Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% (@vehicle_reservations[:current]+@vehicle_reservations[:future]).each do |reservation| %>
+				<tr>
+					<td><%= reservation.vehicle.license_plate %></td>
+					<td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
+					<td><%= reservation.duration %></td>
+					<td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
+					<td><%= link_to 'Show', reservation %></td>
+					<!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<div class="total">Total: <%= format_currency(@vehicle_upcoming_total) %></div>
+<% end %>
+<% unless @vehicle_reservations[:past].empty? %>
+	<h5>Past 30 Days</h5>
+	<table>
+		<thead>
+			<tr>
+				<th>Vehicle</th>
+				<th>Start Time</th>
+				<th>Hours</th>
+				<th>Amount</th>
+			</tr>
+		</thead>
 
-  <tbody>
-    <% @vehicle_reservations[:past].each do |reservation| %>
-      <tr>
-        <td><%= reservation.vehicle.license_plate %></td>
-        <td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
-        <td><%= reservation.duration %></td>
-        <td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
-        <td><%= link_to 'Show', reservation %></td>
-        <!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="total">Total: <%= format_currency(@vehicle_past_total) %></div>
+		<tbody>
+			<% @vehicle_reservations[:past].each do |reservation| %>
+				<tr>
+					<td><%= reservation.vehicle.license_plate %></td>
+					<td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
+					<td><%= reservation.duration %></td>
+					<td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
+					<td><%= link_to 'Show', reservation %></td>
+					<!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<div class="total">Total: <%= format_currency(@vehicle_past_total) %></div>
+<% end%>
 <% end %>
 
 
 <% unless @space_reservations.empty? %>
-<h4>My Spaces</h4>
+<h3>My Spaces</h3>
+<% unless (@space_reservations[:current]+@space_reservations[:future]).empty? %>
 <h5>Upcoming</h5>
 <table>
 	<thead>
@@ -82,6 +88,8 @@
 	</tbody>
 </table>
 <div class="total">Total: <%= format_currency(@space_upcoming_total) %></div>
+<% end %>
+<% unless @space_reservations[:past].empty? %>
 <h5>Past 30 Days</h5>
 <table>
   <thead>
@@ -108,3 +116,5 @@
 </table>
 <div class="total">Total: <%= format_currency(@space_past_total) %></div>
 <% end %>
+<% end %>
+</div>
