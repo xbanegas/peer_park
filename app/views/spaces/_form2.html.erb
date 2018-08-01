@@ -38,6 +38,7 @@
 					<input type="checkbox" name="space[avail_su]" id="space_avail_su" value="<%= @space.avail_su ? '1' : '0' %>" <%= @space.avail_su ? 'checked=""' : "" %>>
 			</div>
 	</div>
+	<div class="boom">
 		<div class="field">
 			<%= f.input :size, :html => {:class=>"ui radio checkbox"}, :as => :radio, :collection => ["Coupe", "Sedan", "Suv", "Truck / Van"] %>
 		</div>
@@ -49,6 +50,7 @@
 			<%= f.label :description %>
 			<%= f.text_field :description %>
 		</div>
+	</div>	
 	</form>
 
 	<div class="actions">

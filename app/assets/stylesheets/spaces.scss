@@ -16,7 +16,7 @@ h2 {
 	margin: .5em;
 }
 h4 {
-	margin: 0;
+	margin-left: 4em;
 }
 
 link_to {
@@ -112,10 +112,15 @@ space {
 // 	margin-left: 15%;
 // 	margin-right: 15%;
 // }
+
 #space_hourly_rate {
 	width: 40%;
 }
 
 #space_description {
-	height: 6em !important;
+	width:100%;
+}
+
+.boom {
+	margin: 0px 5em 1em;
 }
