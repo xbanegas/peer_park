@@ -5,8 +5,12 @@
 	<h1> Your Space Info </h1>
 
 	<p>
-		# <strong>Cover image:</strong>
-		<#%= image_tag @space.parking_spot_image, height: 250 %>
+		<strong>Cover image:</strong>
+    <% if @space.parking_spot_image.attached?  %>
+      <%= image_tag @space.parking_spot_image, height: 250 %>
+    <% else %>
+      <%= image_tag 'missing.png', height: 250 %>
+    <% end %>
 	</p>
 
 	<p>
@@ -16,19 +20,7 @@
 	<h2>Address</h2>
 	
 	<p>
-		<%#= @space.address %>
-	</p>
-
-	<p>
-		<%#= @space.city %>
-	</p>
-
-	<p>
-		<%#= @space.state %>
-	</p>
-
-	<p>
-		<%#= @space.zip %>
+		<%= @space.make_address %>
 	</p>
 
 	<table>
@@ -85,7 +77,7 @@
 	</table>
 
 	<p>
-	<h2>Hourly Rate</h2> <%= number_to_currency(cents_to_dollars(@space.hourly_rate)) %>
+	<h2>Hourly Rate</h2> <%= format_currency @space.hourly_rate %>
 	</p>
 
 	<p>
