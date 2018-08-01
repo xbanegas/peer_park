@@ -1,25 +1,110 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reservations</h1>
+<h1>Account History</h1>
 
+<% unless @vehicle_reservations.empty? %>
+<h4>My Vehicles</h4>
+<h5>Upcoming</h5>
+<table>
+	<thead>
+		<tr>
+			<th>Vehicle</th>
+			<th>Start Time</th>
+			<th>Hours</th>
+			<th>Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% (@vehicle_reservations[:current]+@vehicle_reservations[:future]).each do |reservation| %>
+      <tr>
+        <td><%= reservation.vehicle.license_plate %></td>
+        <td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
+        <td><%= reservation.duration %></td>
+        <td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
+        <td><%= link_to 'Show', reservation %></td>
+        <!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+	</tbody>
+</table>
+<div class="total">Total: <%= format_currency(@vehicle_upcoming_total) %></div>
+<h5>Past 30 Days</h5>
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Vehicle</th>
+      <th>Start Time</th>
+      <th>Hours</th>
+      <th>Amount</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @reservations.each do |reservation| %>
+    <% @vehicle_reservations[:past].each do |reservation| %>
       <tr>
+        <td><%= reservation.vehicle.license_plate %></td>
+        <td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
+        <td><%= reservation.duration %></td>
+        <td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
         <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
+<div class="total">Total: <%= format_currency(@vehicle_past_total) %></div>
+<% end %>
 
-<br>
 
-<%= link_to 'New Reservation', new_reservation_path %>
+<% unless @space_reservations.empty? %>
+<h4>My Spaces</h4>
+<h5>Upcoming</h5>
+<table>
+	<thead>
+		<tr>
+			<th>Vehicle</th>
+			<th>Start Time</th>
+			<th>Hours</th>
+			<th>Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% (@space_reservations[:current]+@space_reservations[:future]).each do |reservation| %>
+      <tr>
+        <td><%= reservation.vehicle.license_plate %></td>
+        <td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
+        <td><%= reservation.duration %></td>
+        <td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
+        <td><%= link_to 'Show', reservation %></td>
+        <!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+	</tbody>
+</table>
+<div class="total">Total: <%= format_currency(@space_upcoming_total) %></div>
+<h5>Past 30 Days</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle</th>
+      <th>Start Time</th>
+      <th>Hours</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @space_reservations[:past].each do |reservation| %>
+      <tr>
+        <td><%= reservation.vehicle.license_plate %></td>
+        <td><%= reservation.start_time.strftime("%m/%d/%Y") %></td>
+        <td><%= reservation.duration %></td>
+        <td><%= number_to_currency(cents_to_dollars(reservation.space.hourly_rate * reservation.duration))%><td>
+        <td><%= link_to 'Show', reservation %></td>
+        <!-- <td><%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="total">Total: <%= format_currency(@space_past_total) %></div>
+<% end %>
