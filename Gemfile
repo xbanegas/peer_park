@@ -82,3 +82,5 @@ gem 'sidekiq'
 
 gem 'redis-rails'
 
+gem 'rails_12factor', group: :production
+
