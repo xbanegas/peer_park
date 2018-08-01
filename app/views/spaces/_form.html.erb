@@ -11,41 +11,38 @@
     </div>
   <% end %>
 
-	<div class="ui form">
-		<div class= "address">
+	<form class="ui form">
 			<div class="field"> 
-				<%=f.label :address, "Address" %><br />
+				<%=f.label :address, "Address" %>
 				<%= f.text_field :address, {:style => "width: 20em;"} %>
 			</div>
-			
+		<div class= "fields">
 			<div class="field">
-				<%= f.label :city, "City" %><br />
+				<%= f.label :city, "City" %>
 				<%= f.text_field :city, :style => "width: 10em;" %>
 			</div>
 
 			<div class="field">
-				<%= f.label :state, "State" %><br />
+				<%= f.label :state, "State" %>
 				<%= f.text_field :state, :style => "width: 5em;" %>
 			</div>
 
 			<div class="field">
-				<%= f.label :zip, "Zip Code" %><br />
+				<%= f.label :zip, "Zip Code" %>
 				<%= f.text_field :zip, :style => "width: 10em;" %>
 			</div>
-	</div> 
-
-  <div class="field">
-    <%= f.label :parking_spot_image, "Add a picture" %><br />
-    <%= f.file_field :parking_spot_image %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "List" %>
-  </div>
-
-		<div class="actions">
-			<%= f.submit "List Space", class: 'redButton ui button', :style => "width: 7em;" %>
-			<%= f.submit "Cancel", class: 'grayButton ui button', :style => "width: 7em; " %>
 		</div>
-	</div> 
+		
+			<div class="field">
+				<%= f.label :parking_spot_image, "Add a picture" %>
+				<%= f.file_field :parking_spot_image %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit "List Space", class: 'ui button', :style => "width: 7em;" %>
+				<%= f.submit "Cancel", class: 'ui button', :style => "width: 7em;" %>
+			</div>
+		</div> 
+	</form> 
+
 <% end %>

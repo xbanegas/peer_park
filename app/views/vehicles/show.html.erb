@@ -1,29 +1,27 @@
 <p id="notice"><%= notice %></p>
+<h1>My Vehicle</h1>
+<div class="showmethemoney">
 
-<p>
-  <strong>User:</strong>
-  <%= @vehicle.user %>
-</p>
+	<p>
+		<h5>Make:</h5>
+		<%= @vehicle.make %>
+	</p>
 
-<p>
-  <strong>Make:</strong>
-  <%= @vehicle.make %>
-</p>
+	<p>
+		<h5>Model:</h5>
+		<p><%= @vehicle.model %></p>
+	</p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @vehicle.model %>
-</p>
+	<p>
+		<h5>Color:</h5>
+		<%= @vehicle.color %>
+	</p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @vehicle.color %>
-</p>
+	<p>
+		<h5>License plate:</h5>
+		<%= @vehicle.license_plate %>
+	</p>
 
-<p>
-  <strong>License plate:</strong>
-  <%= @vehicle.license_plate %>
-</p>
-
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
+		<%= link_to 'Edit', edit_vehicle_path(@vehicle), class: "ui button" %> 
+		<%= link_to 'Back', vehicles_path, class: "ui button" %>
+	</div>

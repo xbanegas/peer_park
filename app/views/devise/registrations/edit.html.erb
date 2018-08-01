@@ -1,31 +1,26 @@
 <h1>Profile</h1>
 
-<%= link_to("My Vehicles", vehicles_path) %>
-<%= link_to("My Spaces", spaces_path) %>
-
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
 	<div class="profilefields">
-	<div class="fields">
 		<div class="ui input">
-		<%= f.label :first_name, "First Name" %><br />
-		<%= f.text_field :first_name, value: resource.first_name %>
+			<h4><%= f.label :first_name, "First Name", class: "balls" %></h4> 
+			<%= f.text_field :first_name, value: resource.first_name %>
 		</div>
 
-		<div class="ui input">
-		<%= f.label :last_name, "Last Name" %><br />
-		<%= f.text_field :last_name, value: resource.last_name %>
+		<div class="  ui input">
+			<h4><%= f.label :last_name, "Last Name", class: "balls" %></h4> 
+			<%= f.text_field :last_name, value: resource.last_name %>
 		</div>
 
-		<div class="ui input">
-		<%= f.label :cell_number, "Mobile Number" %><br />
-		<%= f.telephone_field :cell_number, value: resource.cell_number %>
+		<div class=" ui input">
+			<h4><%= f.label :cell_number, "Mobile Number", class: "balls" %></h4> 
+			<%= f.telephone_field :cell_number, value: resource.cell_number %>
 		</div>
 
-		<div class="ui input">
-			<%= f.label :email %><br />
+		<div class=" ui input">
+			<h4><%= f.label :email, class: "balls" %></h4> 
 			<%= f.email_field :email, autofocus: true, value: resource.email %>
 		</div>
 
@@ -33,32 +28,31 @@
 			<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 		<% end %>
 
-		<div class="ui input">
-			<%= f.label :password %> <i>(Leave blank if you don't want to change it.)</i><br />
+		<div class=" ui input">
+			<h4><%= f.label :new_password, class: "balls"  %></h4> 
 			<%= f.password_field :password, autocomplete: "off" %>
 			<% if @minimum_password_length %>
-				<br />
-				<em><%= @minimum_password_length %> characters minimum</em>
 			<% end %>
 		</div>
 
 		<div class="ui input">
-			<%= f.label :password_confirmation, "Password Confirmation " %><br />
+			<h4><%= f.label :password_confirmation, "Confirm Password", class: "balls" %></h4> 
 			<%= f.password_field :password_confirmation, autocomplete: "off" %>
 		</div>
 
 		<div class="ui input">
-			<%= f.label :current_password, "Current " %> <i>(We need your current password to confirm your changes.)</i><br />
+			<h4><%= f.label :current_password, "Current Password", class: "balls" %> </h4> 
 			<%= f.password_field :current_password, autocomplete: "off" %>
 		</div>
 	</div>
 
   <div class="actions">
-    <%= f.submit "Update", class: 'redButton ui submit button' %>
-  </div>
+    <%= f.submit "Update", class: 'ui submit button' %>
+		<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui submit button' %>
+		<%= link_to("Back", :back, class: 'ui button') %>
+		<%= link_to("My Vehicles", vehicles_path, class:'ui button') %>
+		<%= link_to("My Spaces", spaces_path, class:'ui button') %>
+	</div>
 
 <% end %>
 
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui submit button' %></p>
-
-<%= link_to "Back", :back, class: 'redButton ui submit button' %>
