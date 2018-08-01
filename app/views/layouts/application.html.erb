@@ -22,7 +22,6 @@
       
       <%#= link_to(image_tag("PP_Gray_Icon_Trans.png", root_path) %>
 
-
       <div class="nav">
         <div class="ui compact menu">
           <div class="ui simple dropdown item">
@@ -30,7 +29,7 @@
 						<div class="menu">
 						<% if user_signed_in? %>
               <%= link_to('Profile', edit_user_registration_path, class: "item") %>
-              <div class="item">Account History</div>
+              <%= link_to('Account History', reservations_path, class:"item") %>
                 <%= link_to('Find a Space', root_path, class: "item") %>
                 <%= link_to('List a Space', new_space_path, class: "item") %>
 								<%= link_to('Logout', destroy_user_session_path, method: :delete, class: "item") %>
