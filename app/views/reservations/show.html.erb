@@ -1,28 +1,30 @@
+<form class="reserve ui form">
 <p id="notice"><%= notice %></p>
 
 
-<h4>Space Reserved</h4>
+<h1>Space Reserved</h1>
 <p>
-<strong>Space:</strong>
+<h4>Space</h4>
 <%= @reservation.space.address %>
 </p>
 <p>
-<strong>Rate:</strong>
+<h4>Rate</h4>
 <%= cents_to_dollars(@reservation.space.hourly_rate) %>
 </p>
-<p><strong>Start Time:</strong>
+<p><h4>Start Time</h4>
 <%= @reservation.start_time %>
 </p>
 <p>
-  <strong>Duration:</strong>
+  <h4>Duration</h4>
   <%= @reservation.duration %>
 </p>
-<p><strong>Vehicle:</strong>
+<p><h4>Vehicle:</h4>
 <%= @reservation.vehicle.license_plate %>
 </p>
-<p><strong>Amount</strong>
+<p><h4>Amount</h4>
 <%= cents_to_dollars(@reservation.space.hourly_rate * @reservation.duration) %>
 </p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
+</form>

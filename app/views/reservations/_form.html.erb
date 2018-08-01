@@ -21,16 +21,16 @@
     <%= select_tag(:license_plate, options_for_select(@plates), { :style => "width: 7em;", :class =>"ui input"}) %> 
   </div>
 
-  <div class="required field">
-    <label>Choose Date</label>
-    <%= react_component("Calendar" ) %>
-  </div>
-
 	<div class="required field">
 		Hourly Rate: <%= number_to_currency(cents_to_dollars(@space.hourly_rate)) %>
 	</div>
 
   <%= react_component("Reservation", props: { hourly_rate: @space.hourly_rate}) %>
+
+<div class="required field">
+	<label>Choose Date</label>
+	<%= react_component("Calendar" ) %>
+</div>
 
 <script id="stripebutton" data-key=<%= ENV["STRIPE_API_PUBLIC_KEY"] %> src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-description="Peer Park" data-locale="auto"></script> 
 
