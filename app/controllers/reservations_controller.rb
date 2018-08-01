@@ -48,7 +48,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.save
         checkout @reservation, ((@reservation.space.hourly_rate * params[:reservation][:duration].to_i)/100)
-        NewReservationWorker.new.perform_async(@reservation)
+        #NewReservationWorker.new.perform_async(@reservation)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
