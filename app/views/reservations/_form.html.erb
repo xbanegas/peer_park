@@ -2,7 +2,6 @@
   <% if reservation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-
       <ul>
       <% reservation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,28 +14,28 @@
 
   <h1>Reserve a Space</h1>
 	<div class="goddamn">
-	
-  <div class="required field">
-    <label>Select License Plate</label>
-    <%= select_tag(:license_plate, options_for_select(@plates), { :style => "width: 8em;", :class =>"ui input"}) %> 
-  </div>
 
-	<div class="required field">
-		Hourly Rate: <%= number_to_currency(cents_to_dollars(@space.hourly_rate)) %>
-	</div>
+		<div class="required field">
+			<label>Choose Date</label>
+			<%= react_component("Calendar" ) %>
+		</div>	
 
-  <%= react_component("Reservation", props: { hourly_rate: @space.hourly_rate}) %>
+		<div class="required field">
+			<label>Select License Plate</label>
+			<%= select_tag(:license_plate, options_for_select(@plates), { :style => "width: 8em;", :class =>"ui input"}) %> 
+		</div>
 
-<div class="required field">
-	<label>Choose Date</label>
-	<%= react_component("Calendar" ) %>
+		<div class="field">
+			<label>Hourly Rate: </label>
+			<%= number_to_currency(cents_to_dollars(@space.hourly_rate)) %>
+		</div>
+
+		<%= react_component("Reservation", props: { hourly_rate: @space.hourly_rate}) %>
+
+		<script id="stripebutton" data-key=<%= ENV["STRIPE_API_PUBLIC_KEY"] %> src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-description="Peer Park" data-locale="auto"></script> 
+
+		<%= link_to 'Back', root_path, class: "ui button" %>
+
 </div>
-
-<script id="stripebutton" data-key=<%= ENV["STRIPE_API_PUBLIC_KEY"] %> src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-description="Peer Park" data-locale="auto"></script> 
-
-<%= link_to 'Back', root_path, class: "ui button" %>
-
-</div>
-
 
 <% end %>
