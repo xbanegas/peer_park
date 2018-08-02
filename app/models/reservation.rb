@@ -31,6 +31,8 @@ class Reservation < ApplicationRecord
 	end
 	
 	def print_time
-		self.start_time.strftime("%I:%M%p") + self.start_time.strftime(" on %m/%d/%Y")
+		start_time = self.start_time.in_time_zone('Eastern Time (US & Canada)')
+		start_time.strftime("%I:%M%p") + start_time.strftime(" on %m/%d/%Y")
 	end
+
 end

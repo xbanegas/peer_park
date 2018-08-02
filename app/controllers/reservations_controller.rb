@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    vehicle_reservations = Reservation.vehicle_by_user(current_user)
+		vehicle_reservations = Reservation.vehicle_by_user(current_user)
     @vehicle_reservations = Reservation.date_sort vehicle_reservations
     @vehicle_past_total = Reservation.total @vehicle_reservations[:past]
 		@vehicle_upcoming_total = Reservation.total @vehicle_reservations[:current]
