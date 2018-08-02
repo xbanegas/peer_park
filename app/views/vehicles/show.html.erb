@@ -2,26 +2,26 @@
 <h1>My Vehicle</h1>
 <div class="showmethemoney">
 
-	<p>
-		<h5>Make:</h5>
+	<div>
+		<label class="ui header">Make:</label>
 		<%= @vehicle.make %>
-	</p>
+	</div>
 
-	<p>
-		<h5>Model:</h5>
-		<p><%= @vehicle.model %></p>
-	</p>
+<div>
+		<label class="ui header">Model:</label>
+	<%= @vehicle.model %>
+</div>
 
-	<p>
-		<h5>Color:</h5>
+<div>
+		<label class="ui header">Color:</label>
 		<%= @vehicle.color %>
-	</p>
-
-	<p>
-		<h5>License plate:</h5>
+</div>
+<div>
+		<label class="ui header">License plate:</label>
 		<%= @vehicle.license_plate %>
-	</p>
-
+</div>
+	<div class="vehicle-buttons">
 		<%= link_to 'Edit', edit_vehicle_path(@vehicle), class: "ui button" %> 
 		<%= link_to 'Back', vehicles_path, class: "ui button" %>
+		</div>
 	</div>
