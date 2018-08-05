@@ -1,13 +1,13 @@
 class NewReservationWorker 
   include Sidekiq::Worker
 
-  def perform_async(reservation)
+	def perform_async(reservation)
     twilio_sid=ENV["TWILIO_API_SID"]
     twilio_token=ENV["TWILIO_API_TOKEN"]
     @client = Twilio::REST::Client.new twilio_sid, twilio_token
     
     parker = reservation.vehicle.user
-    start_time =  reservation.start_time.strftime("%I:%M%p") + reservation.start_time.strftime(" on %m/%d/%Y") 
+    start_time =  reservation.print_time
     unless parker.cell_number.nil?
       parker_message = "You've reserved a space at #{reservation.space.make_address} for #{reservation.vehicle.license_plate}"\
         " starting at #{start_time} for #{reservation.duration} hours. "
