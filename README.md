@@ -4,7 +4,7 @@ _More Spaces in More Places_
 
 Working Demo: <https://vast-journey-73274.herokuapp.com/>
 
-![my screenshot](https://github.com/xbanegas/peer_park/blob/master/screenshot.png)
+![my screenshot](https://github.com/xbanegas/peer_park/blob/master/screenshot_sm.png)
 
 Parking is hard to find. Many people have unused spaces but no way to connect with their potential customers. 
 Peer Park helps users find or list parking spaces.
