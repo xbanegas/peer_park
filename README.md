@@ -1,15 +1,24 @@
-# README
+# Peer Park
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+_More Spaces in More Places_
 
-Things you may want to cover:
+Working Demo: <https://vast-journey-73274.herokuapp.com/>
 
-* Ruby version
+![my screenshot](https://github.com/xbanegas/peer_park/blob/master/screenshot.png)
 
-* System dependencies
+Parking is hard to find. Many people have unused spaces but no way to connect with their potential customers. 
+Peer Park helps users find or list parking spaces.
 
-* Configuration
+## Installation
+The react\_on\_rails gem requires yarn or npm to be installed in order to compile the React components.
+
+    git clone https://github.com/xbanegas/peer_park 
+    cd peer_park/
+    bundle
+    rails db:create db:migrate db:seed
+    rails s
+
+
 
 * Database creation
 
